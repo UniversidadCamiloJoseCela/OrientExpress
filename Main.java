@@ -1,6 +1,8 @@
 import characters.*;
 import map.*;
 
+import javax.swing.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
@@ -78,8 +80,16 @@ public class Main {
         Lounge lounge = new Lounge("El gran salón", "Aquí nos encontraremos con un muy plácido y relajante área durante las horas del día, y por la noche se transforma en \n"+
                 "un ambiente más sociable y fiestero, para reuniones, bailes y pasar un rato agradable. También hay un barman que se encargará de preparar unos deliciosos cócteles",false);
          //por donde entrara el personaje, primera escena
-        Viewpoint Viewpoint = new Viewpoint("Mirador 'El balcón de los poetas'", "Paraje donde podrás navegar las olas de la imaginación, observar la naturaleza \n"+
+        Viewpoint viewpoint = new Viewpoint("Mirador 'El balcón de los poetas'", "Paraje donde podrás navegar las olas de la imaginación, observar la naturaleza \n"+
                 "e inspirarte. Es el espacio más seguro y privado en ciertos momentos del día.", false);
+
+
+
+
+        Train orientExpress = new Train();
+
+        orientExpress.setArrCarriages(new ArrayList<>());
+
 
         int[][] mapping = new int[3][7];
         int a = 0;
