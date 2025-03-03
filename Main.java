@@ -11,7 +11,7 @@ public class Main {
                 " resuelve un robo en la iglesia del Santo Sepulcro en Jerusalen\n" +
                 " tambien estuvo en Nadiekistan resolviendo un caso hace 9 anyos donde con la ayuda de un alcade\n" +
                 " pudo resolver un triple homicidio en el rio que pasaba por la midad de toda la ciudad, el caso\n" +
-                " se conocio como el Asesinato de los naipes, y forma parte de Scotland Yard donde conocio a Sherlock Holmes",
+                " se conocio como el Asesinato de los Naipes, y forma parte de Scotland Yard donde conocio a Sherlock Holmes",
                 "Meticuloso, Vanidoso, Cortes, Maquiavelico");
 
 
@@ -21,8 +21,8 @@ public class Main {
 
 
         LocomotiveDriver locomotiveDriver = new LocomotiveDriver("Louis",45,false,"Conduce trenes desde los 20 años\n"+
-                "Pidio dinero a un prestamista para su hija enferma.\n" + "Trabaja todo el día para darle a su hija la vida que el nunca tuvo.", "Luchador, confiable, humilde, adaptativo"
-                );
+                "Pidio dinero a un prestamista para su hija enferma.\n" + 
+                "Trabaja todo el día para darle a su hija la vida que el nunca tuvo.", "Luchador, confiable, humilde, adaptativo");//Dicho prestamista fue mas adelante encontrado culpable por tramites ilegales si sus clientes no llegaban a devolder el dinero con interes.
 
         TrainCoalman trainCoalman = new TrainCoalman("Bob",56,false, "Desde pequeño tuvo que trabajar para comer, no tiene familia. \n" +
                 "Siempre ha estado solo, no se sabe mucho de el, su vida es un misterio.","Enclenque, reservado, desconfiado y aprensivo " );
@@ -32,7 +32,7 @@ public class Main {
                 " alli rescato de un metro a un ninyo abandonado por su madre, el cual se apiado del ninyo y lo llevo a un orfanato,\n desde" +
                 "entonces no supo nada mas de el\n" +
                 "Durante 3 anyos estuvo en Las vegas como un ludopata empedernido,\n" +
-                "en donde ocurrio un asesinato en el casino en el que se encontraba.", "PTSD, Soberbio, Culto, Abordable");// en el casino conoce a maria por el caso
+                "en donde ocurrio un asesinato en el casino en el que se encontraba.", "PTSD, Soberbio, Culto, Abordable");// en el casino conoce a maria por el caso en el que la persona asesinada es el prestamista de Louis
 
 
         Mayor mayor = new Mayor("Paco Fiestas", 50, false, "Alcalde de VillaNadie." +
@@ -47,11 +47,11 @@ public class Main {
         Criminologist criminologist = new Criminologist("Maria", 29, true, "Experiencia laboral: " +
                 "Ha trabajado en CSI Las Vegas durante 4 anyos,\n" +
                 "habla 4 idiomas diferentes" + " y ha hecho" +
-                " conferencias en 20 paises\nsobre sus investigaciones criminalisticas", "Extrovertida, curiosa, detallista y honesta");
+                " conferencias en 20 paises \n sobre sus investigaciones criminalisticas", "Extrovertida, curiosa, detallista y honesta");//en el caso del casino sigue las pistas y llega hasta Louis por ser un posible sospechoso y a Juan Carlos por ser un testigo
 
 
-        Novelist novelist = new Novelist("Anne with a E", 43, true, "Ha escrito 10 novelas, tiene un premio Nobel de literatura,\n" +
-                "El premio Nobel lo gano por una Novela Negra", "Rigurosa, imaginativa, esceptica, cautelosa, solitaria e introvertida");
+        Novelist novelist = new Novelist("Anne with a E", 43, true, "Ha escrito 10 novelas, tiene un premio Nobel de literatura,\n" + //es huerfana
+                "El premio Nobel lo gano por una Novela Negra", "Rigurosa, imaginativa, esceptica, cautelosa, solitaria e introvertida");//la novelista necesita informacion sensible y recurre a la estacion donde se encuentra nuestra criminologa en su año de novata, al ser novata le pasan el marron a ella.asi se conocen
 
         BaggageRoom baggageRoom= new BaggageRoom("Deja maletas","Es todo un vagon preparado exclusivamente con la intencion  de martener las \n" +
                 "pertenencias a salvo durante todo el viaje.\n" +
