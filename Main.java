@@ -86,21 +86,30 @@ public class Main {
 
 
 
-        Train orientExpress = new Train();
+        Train orientExpress = new Train("El orient express");
 
-        orientExpress.setArrCarriages(new ArrayList<>());
+        viewpoint.setMapping(
+                new Object[][]{
+                        {"s", "d"},
+                        {"ss"},
+                }
+        );
+
+        orientExpress.getArrCarriages().add(viewpoint);
+        orientExpress.getArrCarriages().add(baggageRoom);
 
 
-        int[][] mapping = new int[3][7];
-        int a = 0;
-        for (int i = 0; i <3; i++) {
-            for (int j = 0; j < 4; j++) {
-                mapping[i][j] = 0;
-            }
+
+        for (int i = 0; i < orientExpress.getArrCarriages().size(); i++) {
+            System.out.println(orientExpress.getArrCarriages().get(i).getCarriageName());
         }
 
-        for (int i = 0; i < 3; i++) {
-            System.out.println(Arrays.toString(mapping[i]));
-        }
+
+
+
+
+
+
+
     }
 }
