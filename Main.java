@@ -4,6 +4,7 @@ import map.*;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Main {
     public static void main (String[] argumentos) {
@@ -88,12 +89,29 @@ public class Main {
 
         Train orientExpress = new Train("El orient express");
 
-        viewpoint.setMapping(
-                new Object[][]{
-                        {"s", "d"},
-                        {"ss"},
+        //Creation of empty(null objects) bidimensional array
+        Object[][] mapping = new Object[3][7];
+
+        // Constructor to fill the array with "x"
+            // Loop through each row
+            for (int i = 0; i < mapping.length; i++) {
+                // Loop through each column in the current row
+                Arrays.fill(mapping[i], "X");
+            }
+
+
+        // A method to print the 2D array
+
+            for (Object[] row : mapping) {
+                for (Object cell : row) {
+                    System.out.print(cell + " ");
                 }
-        );
+                System.out.println();
+            }
+
+
+
+        viewpoint.setMapping(mapping);
 
         orientExpress.getArrCarriages().add(viewpoint);
         orientExpress.getArrCarriages().add(baggageRoom);
