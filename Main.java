@@ -55,8 +55,8 @@ public class Main {
 
         BaggageRoom baggageRoom= new BaggageRoom("Deja maletas","Es todo un vagon preparado exclusivamente con la intencion  de martener las \n" +
                 "pertenencias a salvo durante todo el viaje.\n" +
-                "Se trata de dos filas con una altura suficiente para 4 maletas en horizontal con un grosor de tres manos,\n" +
-                "cada una de dichas filas estan repartidas en cinco columnas y señalizadas con la habitacion a la que corresponden. ",false);
+                "Se trata de dos filas con una altura suficiente para 2 maletas en vertical con un grosor de tres manos y seis de longitud,\n" +
+                "cada una de dichas filas estan repartidas en tres columnas y señalizadas con la habitacion a la que corresponden. ",false);
         
         Bathroom bathroom= new Bathroom("Baño de lujo","Curiosamente se trata de uno de los baños mas limpios que veras en tu vida,el cual tiene un riguroso reglaje de limpieza entre viajes.\n" +
                 "Aparte de eso se trata de un baño bastante corriente el cual viene preparado para toda 'emergencia posible'.",false);
