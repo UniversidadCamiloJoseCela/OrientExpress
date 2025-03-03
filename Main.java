@@ -97,6 +97,10 @@ public class Main {
             for (int i = 0; i < mapping.length; i++) {
                 // Loop through each column in the current row
                 Arrays.fill(mapping[i], "X");
+                if(i % 2 != 0){
+                    mapping[i][0] = "\uD83D\uDE00";
+                    mapping[i][mapping[i].length-1] = "\uD83E\uDD20";
+                }
             }
 
 
