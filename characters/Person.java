@@ -101,13 +101,13 @@ public class Person {
 
         if (carriage.checkObjectCollision(actualPosition)){
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Perro: Hola!");
+            System.out.println("Perro: Hola! Oso glotón!");
             boolean exists = false;
             while (!exists){
                 System.out.println("1. Como te ha ido el dia?");
                 System.out.println("2. Que estas haciendo perro?");
                 System.out.println("3. [Accion] Pedirle la patita?");
-                System.out.println("4. [Accion] Dejar conversacion");
+                System.out.println("4. [Accion] Dejar conversación");
                 switch (scanner.nextLine()){
                     case "1":
                         System.out.println("-> Perro: Guau, mi día fue genial, lleno de juegos y siestas.");
@@ -119,7 +119,7 @@ public class Person {
                         System.out.println("-> Perro: *Levanto mi patita con alegría*");
                         break;
                     case "4":
-                        System.out.println("-> Perro: *Muevo la cola y me despido, hasta luego, humano!*");
+                        System.out.println("-> Perro: *Muevo la cola y me despido, hasta luego, Oso!*");
                         exists = true;
                         break;
                 }

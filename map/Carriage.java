@@ -1,5 +1,6 @@
 package map;
 
+import characters.Comander;
 import characters.Detective;
 import characters.Person;
 
@@ -96,6 +97,6 @@ public class Carriage {
     }
 
     public boolean checkObjectCollision(int[] position) {
-        return this.mapping[position[0]][position[1]] instanceof Person;
+        return this.mapping[position[0]][position[1]] instanceof Comander;
     }
 }
