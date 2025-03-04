@@ -122,7 +122,7 @@ public class Main {
         while (!exit) {
             System.out.print("1. Para imrpimir\n2. Para salir\n \n \n \n \n \n \n \n");
 
-            switch (scanner.nextLine()){  // Read user input){
+            switch (scanner.nextLine()){
                 case "1":
                     System.out.println("Hola");
                     break;
