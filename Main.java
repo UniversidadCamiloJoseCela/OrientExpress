@@ -98,31 +98,28 @@ public class Main {
                 // Loop through each column in the current row
                 Arrays.fill(mapping[i], "X");
                 if(i % 2 != 0){
-                    mapping[i][0] = "🚪";
-                    mapping[i][mapping[i].length-1] = "🚪";
+                    mapping[i][0] = detective;
+                    //mapping[i][mapping[i].length-1] = "🚪";
                 }
             }
 
 
 
         viewpoint.setMapping(mapping);
-        baggageRoom.setMapping(mapping);
-
         orientExpress.getArrCarriages().add(viewpoint);
-        orientExpress.getArrCarriages().add(baggageRoom);
+        detective.setEmoji("\uD83D\uDC3B");
+        //orientExpress.getArrCarriages().getFirst().printMap();
 
 
-
-        for (int i = 0; i < orientExpress.getArrCarriages().size(); i++) {
-            orientExpress.getArrCarriages().get(i).printMap();
-        }
 
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
         while (!exit) {
-            System.out.print("¡Buenas! Si quiere empezar esta nueva aventura escriba 'jugar'. Si no quiere entrar, escriba cualquier otra cosa." );
-            if(scanner.nextLine().toLowerCase().equals("jugar")){
-                iniciar();
+            System.out.print("¡Buenas! Si quiere empezar esta nueva aventura escriba 'jugar'. Si no quiere entrar, " +
+                    "escriba cualquier otra cosa." );
+            if(scanner.nextLine().trim().equalsIgnoreCase("jugar")){
+                iniciar(detective, viewpoint);
+
             } else{
                 exit = true;
             }
@@ -155,12 +152,13 @@ public class Main {
      */
 
     //Iniciar juego
-    private static void iniciar(){
+    private static void iniciar(Detective detective, Carriage carriage){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Bienvenido, muevase libremente por el escenario");
         while(true){
+            carriage.printMap();
             //movimiento del personaje principal
-            move(String movement);
+            detective.move(scanner.nextLine(), carriage);
         }
 
     }

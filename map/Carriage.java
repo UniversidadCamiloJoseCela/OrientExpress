@@ -1,5 +1,10 @@
 package map;
 
+import characters.Detective;
+
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Carriage {
 
     private String carriageName;
@@ -53,9 +58,43 @@ public class Carriage {
     public void printMap() {
         for (Object[] row : this.mapping) {
             for (Object cell : row) {
-                System.out.print(cell + " ");
+                if(cell instanceof Detective){
+                    System.out.print(((Detective) cell).getEmoji() + " ");
+                }else{
+                    System.out.print(cell + " ");
+                }
             }
             System.out.println();
         }
+    }
+
+    public int[] findPosition() {
+        int rowIndex = 0;
+        int colIndex = 0;
+        for (Object[] row : this.mapping) {
+            for (Object cell : row) {
+                if(cell instanceof Detective){
+                    return new int[]{rowIndex, colIndex};
+                }
+                colIndex++;
+            }
+            colIndex = 0;
+            rowIndex++;
+        }
+        return new int[]{rowIndex, colIndex};
+    }
+
+    public void updatePosition(int[] position) {
+
+        int rowIndex = findPosition()[0];
+        int colIndex = findPosition()[1];
+        System.out.println(Arrays.toString(position));
+        this.mapping[position[0]][position[1]] = this.mapping[rowIndex][colIndex];
+        if(!(position[0] == rowIndex && position[1] == colIndex)){
+            this.mapping[rowIndex][colIndex] = "X";
+        }
+
+
+
     }
 }
