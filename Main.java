@@ -120,15 +120,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
         while (!exit) {
-            System.out.print("1. Para imrpimir\n2. Para salir\n \n \n \n \n \n \n \n");
-
-            switch (scanner.nextLine()){
-                case "1":
-                    System.out.println("Hola");
-                    break;
-                case "2":
-                    exit = true;
-                    break;
+            System.out.print("¡Buenas! Si quiere empezar esta nueva aventura escriba 'jugar'. Si no quiere entrar, escriba cualquier otra cosa." );
+            if(scanner.nextLine().toLowerCase().equals("jugar")){
+                iniciar();
+            } else{
+                exit = true;
             }
 
         }
@@ -137,6 +133,29 @@ public class Main {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+    //Declara funciones
+    private static void iniciar(){
+        System.out.println("Bienvenido, muevase libremente por el escenario");
 
     }
 }
