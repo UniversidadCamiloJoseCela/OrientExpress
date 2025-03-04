@@ -99,15 +99,15 @@ public class Main {
                 Arrays.fill(mapping[i], "X");
                 if(i % 2 != 0){
                     mapping[i][0] = detective;
-                    //mapping[i][mapping[i].length-1] = "🚪";
+                    mapping[i][mapping[i].length-1] = comander;
                 }
             }
-
 
 
         viewpoint.setMapping(mapping);
         orientExpress.getArrCarriages().add(viewpoint);
         detective.setEmoji("\uD83D\uDC3B");
+        comander.setEmoji("\uD83D\uDC36");
         //orientExpress.getArrCarriages().getFirst().printMap();
 
 
@@ -115,8 +115,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
         while (!exit) {
-            System.out.print("¡Buenas! Si quiere empezar esta nueva aventura escriba 'jugar'. Si no quiere entrar, " +
-                    "escriba cualquier otra cosa." );
+            System.out.println("\n¡Buenas! Si quiere empezar esta nueva aventura escriba 'jugar'. \nSi no quiere entrar, " +
+                    "escriba cualquier otra cosa.\n" );
+
+            System.out.print("Escribe 'jugar': ");
             if(scanner.nextLine().trim().equalsIgnoreCase("jugar")){
                 iniciar(detective, viewpoint);
 
@@ -152,14 +154,16 @@ public class Main {
      */
 
     //Iniciar juego
-    private static void iniciar(Detective detective, Carriage carriage){
+    private static void iniciar(Detective detective, Carriage carriage) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Bienvenido, muevase libremente por el escenario");
+        System.out.println("\nBienvenido, muevase libremente por el escenario");
         while(true){
             carriage.printMap();
             //movimiento del personaje principal
+            System.out.print("W: arriba, S: abajo, D: derecha, A: izquierda -> ");
             detective.move(scanner.nextLine(), carriage);
         }
 
     }
+
 }

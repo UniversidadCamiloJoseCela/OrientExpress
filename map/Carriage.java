@@ -1,6 +1,7 @@
 package map;
 
 import characters.Detective;
+import characters.Person;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -58,8 +59,8 @@ public class Carriage {
     public void printMap() {
         for (Object[] row : this.mapping) {
             for (Object cell : row) {
-                if(cell instanceof Detective){
-                    System.out.print(((Detective) cell).getEmoji() + " ");
+                if(cell instanceof Person){
+                    System.out.print(((Person) cell).getEmoji() + " ");
                 }else{
                     System.out.print(cell + " ");
                 }
@@ -85,7 +86,6 @@ public class Carriage {
     }
 
     public void updatePosition(int[] position) {
-
         int rowIndex = findPosition()[0];
         int colIndex = findPosition()[1];
         System.out.println(Arrays.toString(position));
@@ -93,8 +93,9 @@ public class Carriage {
         if(!(position[0] == rowIndex && position[1] == colIndex)){
             this.mapping[rowIndex][colIndex] = "X";
         }
+    }
 
-
-
+    public boolean checkObjectCollision(int[] position) {
+        return this.mapping[position[0]][position[1]] instanceof Person;
     }
 }
