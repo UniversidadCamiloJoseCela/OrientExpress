@@ -150,12 +150,18 @@ public class Main {
     }
 
 
+    /**
+     * DECLARACIÓN DE FUNCIONES AQUÍ
+     */
 
-
-
-    //Declara funciones
+    //Iniciar juego
     private static void iniciar(){
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Bienvenido, muevase libremente por el escenario");
+        while(true){
+            //movimiento del personaje principal
+            move(String movement);
+        }
 
     }
 }
