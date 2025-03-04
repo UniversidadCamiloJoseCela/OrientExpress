@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Scanner;
 
 public class Main {
     public static void main (String[] argumentos) {
@@ -92,8 +93,7 @@ public class Main {
         //Creation of empty(null objects) bidimensional array
         Object[][] mapping = new Object[3][7];
 
-        // Constructor to fill the array with "x"
-            // Loop through each row
+
             for (int i = 0; i < mapping.length; i++) {
                 // Loop through each column in the current row
                 Arrays.fill(mapping[i], "X");
@@ -104,18 +104,9 @@ public class Main {
             }
 
 
-        // A method to print the 2D array
-
-            for (Object[] row : mapping) {
-                for (Object cell : row) {
-                    System.out.print(cell + " ");
-                }
-                System.out.println();
-            }
-
-
 
         viewpoint.setMapping(mapping);
+        baggageRoom.setMapping(mapping);
 
         orientExpress.getArrCarriages().add(viewpoint);
         orientExpress.getArrCarriages().add(baggageRoom);
@@ -123,11 +114,24 @@ public class Main {
 
 
         for (int i = 0; i < orientExpress.getArrCarriages().size(); i++) {
-            System.out.println(orientExpress.getArrCarriages().get(i).getCarriageName());
+            orientExpress.getArrCarriages().get(i).printMap();
         }
 
+        Scanner scanner = new Scanner(System.in);
+        boolean exit = false;
+        while (!exit) {
+            System.out.print("1. Para imrpimir\n2. Para salir\n \n \n \n \n \n \n \n");
 
+            switch (scanner.nextLine()){  // Read user input){
+                case "1":
+                    System.out.println("Hola");
+                    break;
+                case "2":
+                    exit = true;
+                    break;
+            }
 
+        }
 
 
 

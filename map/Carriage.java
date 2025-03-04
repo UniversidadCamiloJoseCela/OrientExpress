@@ -49,4 +49,13 @@ public class Carriage {
     public boolean getCarriageLight() {
         return carriageLight;
     }
+
+    public void printMap() {
+        for (Object[] row : this.mapping) {
+            for (Object cell : row) {
+                System.out.print(cell + " ");
+            }
+            System.out.println();
+        }
+    }
 }
