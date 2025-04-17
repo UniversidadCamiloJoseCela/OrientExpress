@@ -1,4 +1,4 @@
-# historia y descripcion vagones
+# historia y descripcion vagones, hasta el jueves y dependiendo de la cantidad de pistas recojidas sera un final u otro 
 Nos encontramos en un tren con dirección a unas merecidas vacaciones lejos de toda ciudad y con las mejores vistas que jamás podrías imaginar, sin embargo, las cosas no parecen ir en tu favor. ¿Verdad?
 
 ¿Qué se le va a hacer? Tendrás que retrasar esas vacaciones. ¿Qué tal si te explico desde el principio para que entiendas en la gran situación en la que nos encontramos en estos momentos?
