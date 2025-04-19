@@ -1,4 +1,4 @@
-# historia y descripcion vagones, hasta el jueves y dependiendo de la cantidad de pistas recojidas sera un final u otro 
+# historia y descripcion vagones, hasta el jueves y dependiendo de la cantidad de pistas recojidas sera un final u otro. un dialogo tocho por dia en el que halla multiopctiones de pistas (cada opcion da un dialogo distinto para luego volver a dialogo automatico)
 Nos encontramos a bordo de un tren con destino a unas merecidas vacaciones, lejos del bullicio urbano y rodeados por paisajes de ensueño. Sin embargo, algo en el ambiente sugiere que la tranquilidad será efímera. ¿Te preguntas por qué? Permíteme relatar los acontecimientos desde el inicio para que comprendas la magnitud de la situación que enfrentamos.
 
 Tras una sucesión de encargos exitosos y lucrativos, el renombrado detective belga Hércules Poirot emprende un viaje de descanso en uno de los trenes más lujosos de la península. El convoy, dotado de las más modernas comodidades, ostenta una impecable trayectoria libre de incidentes, lo que refuerza su reputación como medio de transporte exclusivo y seguro.
