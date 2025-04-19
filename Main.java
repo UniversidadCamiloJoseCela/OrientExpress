@@ -17,6 +17,10 @@ public static void main (String[] argumentos) throws Exception {
         ResourceBundle bundleDialog = ResourceBundle.getBundle("i18n.dialogues", locale); // Dialogo del juego
 
 
+
+        DialogueManager dm = new DialogueManager();
+
+
         Detective detective = new Detective(
                 bundleMsg.getString("detective.name"),
                 38,
@@ -163,37 +167,69 @@ public static void main (String[] argumentos) throws Exception {
         comander.setEmoji("\uD83D\uDC36");
 
 
-    List<DialogueLine> lines = List.of(
-            new DialogueLine(
-                    detective,
-                    bundleDialog.getString("scene1.line1.text"),
-                    0
-            ),
-            new DialogueLine(
-                    comander,
-                    bundleDialog.getString("scene1.line2.text"),
-                    0
-            ),
-            new DialogueLine(
-                    detective,
-                    bundleDialog.getString("scene1.line3.text"),
-                    1000    // avanza solo tras 1s
-            ),
-            new DialogueLine(
-                    detective,
-                    bundleDialog.getString("scene1.line4.text"),
-                    0
-            ),
-            new DialogueLine(
-                    detective,
-                    bundleDialog.getString("scene1.line5.text"),
-                    0
-            )
-    );
+        List<DialogueLine> lines = List.of(
+                new DialogueLine(
+                        detective,
+                        bundleDialog.getString("scene1.line1.text"),
+                        0
+                ),
+                new DialogueLine(
+                        comander,
+                        bundleDialog.getString("scene1.line2.text"),
+                        0
+                ),
+                new DialogueLine(
+                        detective,
+                        bundleDialog.getString("scene1.line3.text"),
+                        1000    // avanza solo tras 1s
+                ),
+                new DialogueLine(
+                        detective,
+                        bundleDialog.getString("scene1.line4.text"),
+                        0
+                ),
+                new DialogueLine(
+                        detective,
+                        bundleDialog.getString("scene1.line5.text"),
+                        0
+                )
+        );
 
-        DialogueManager dm = new DialogueManager();
+
         dm.loadScene(new DialogueScene(lines));
         dm.start();
+
+        System.out.print("Elige (a/b/c): ");
+
+        List<DialogueLine> scene2 = List.of(
+                new DialogueLine(detective,  "Comisario, la señora Martínez dice que escuchó gritos anoche.",         0),
+                new DialogueLine(comander,  "¿A qué hora exactamente?",                                            0),
+                new DialogueLine(comander,     "Sobre las 2:17 de la madrugada, algo crujió en el pasillo.",            1000),
+                new DialogueLine(detective,  "¿Reconoce algún sonido en particular?",                                0),
+                new DialogueLine(comander,     "Sí, como si alguien arrastrara muebles pesados.",                       0),
+                new DialogueLine(detective,  "Bien. Vamos al piso 4, al apartamento 412.",                            0),
+                new DialogueLine(comander,"(Abre la puerta con desgana) Buenas… ¿En qué puedo ayudarles?",      0),
+                new DialogueLine(detective,  "Señor López, tenemos testigos que oyeron ruidos extraños en su casa.", 0),
+                new DialogueLine(comander,"Eso no puede ser… yo estaba durmiendo todo el tiempo.",                  1000),
+                new DialogueLine(comander,  "Necesitamos que nos acompañe a la comisaría para unas preguntas.",     0)
+        );
+
+        List<DialogueLine> nextScene = switch (sc.next().trim().toLowerCase()) {
+            case "a" -> scene2;
+            case "b" -> scene2;
+            default  -> lines;
+        };
+
+        dm.loadScene(new DialogueScene(nextScene));
+        dm.start();
+
+
+        dm.printHistory(
+                bundleMsg.getString("scene"),
+                bundleMsg.getString("character"),
+                bundleMsg.getString("text")
+        );
+
 
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
