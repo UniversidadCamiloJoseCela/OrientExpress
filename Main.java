@@ -8,12 +8,11 @@ import java.util.*;
 
 public static void main (String[] argumentos) throws Exception {
 
+
         Scanner sc = new Scanner(System.in);
         System.out.print("Seleccione lenguaje: en, es, ro, ru, ch ");
-        String lang = sc.next().trim();
 
-        Locale locale = Locale.forLanguageTag(lang);
-
+        Locale locale = Locale.forLanguageTag(sc.next().trim());
         ResourceBundle bundleMsg = ResourceBundle.getBundle("i18n.messages", locale); // Texto del juego
         ResourceBundle bundleDialog = ResourceBundle.getBundle("i18n.dialogues", locale); // Dialogo del juego
 
