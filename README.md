@@ -49,7 +49,7 @@ María, que ha estado escuchando, se une a la mesa.
 
 —Lo investigué en Las Vegas. Tenía una red de víctimas bastante amplia —afirma mientras saborea su té.
 
-En la cabina de conducción, Louis y Bob conversan sobre las implicancias de la tormenta de nieve.
+En la cabina de conducción, Louis y Bob conversan sobre las implicaciones de la tormenta de nieve.
 
 —Si esto continúa, podríamos vernos obligados a detenernos —advierte Bob.
 
