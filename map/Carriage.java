@@ -76,6 +76,7 @@ public class Carriage {
         for (Object[] row : this.mapping) {
             for (Object cell : row) {
                 if(cell instanceof Detective){
+                    //retorna la posición en formato [x,y]
                     return new int[]{rowIndex, colIndex};
                 }
                 colIndex++;
@@ -83,6 +84,7 @@ public class Carriage {
             colIndex = 0;
             rowIndex++;
         }
+        //Si no encuentra personaje retorna [0,0]
         return new int[]{rowIndex, colIndex};
     }
 
@@ -94,9 +96,14 @@ public class Carriage {
         if(!(position[0] == rowIndex && position[1] == colIndex)){
             this.mapping[rowIndex][colIndex] = "X";
         }
+
     }
 
     public boolean checkObjectCollision(int[] position) {
         return this.mapping[position[0]][position[1]] instanceof Comander;
     }
+
+
+
+
 }
