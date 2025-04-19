@@ -1,4 +1,4 @@
-package i18n;
+package dialog;
 
 import java.util.ResourceBundle;
 
