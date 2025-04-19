@@ -199,7 +199,7 @@ public static void main (String[] argumentos) throws Exception {
         dm.loadScene(new DialogueScene(lines));
         dm.start();
 
-        System.out.print("Elige (a/b/c): ");
+
 
         List<DialogueLine> scene2 = List.of(
                 new DialogueLine(detective,  "Comisario, la señora Martínez dice que escuchó gritos anoche.",         0),
@@ -214,29 +214,68 @@ public static void main (String[] argumentos) throws Exception {
                 new DialogueLine(comander,  "Necesitamos que nos acompañe a la comisaría para unas preguntas.",     0)
         );
 
-        List<DialogueLine> nextScene = switch (sc.next().trim().toLowerCase()) {
-            case "a" -> scene2;
-            case "b" -> scene2;
-            default  -> lines;
-        };
+        List<DialogueLine> scene3 = List.of(
+                new DialogueLine(comander,    "He recogido huellas y muestras de sangre en el suelo.",             0),
+                new DialogueLine(detective,  "¿Algún hallazgo relevante?",                                       0),
+                new DialogueLine(comander,    "El patrón de la sangre indica dos personas heridas.",              1000),
+                new DialogueLine(detective,  "Entonces había un segundo agresor o víctima móvil.",              0),
+                new DialogueLine(comander,    "También hay fibras de tela negra cerca de la ventana.",           0),
+                new DialogueLine(detective,  "Muy bien. Asegura todo y llévate las muestras al laboratorio.",  0)
+        );
 
-        dm.loadScene(new DialogueScene(nextScene));
-        dm.start();
+        // Escena 4: interrogatorio al sospechoso
+        List<DialogueLine> scene4 = List.of(
+                new DialogueLine(detective,  "Señor López, ¿dónde estaba usted entre las dos y las tres de la mañana?", 0),
+                new DialogueLine(comander, "En mi piso, durmiendo. Nadie puede confirmarlo.",                     0),
+                new DialogueLine(detective,  "Tenemos testigos que oyeron su voz en el rellano.",                    1000),
+                new DialogueLine(comander, "Eso es imposible… ¡nunca salí de mi casa!",                              0),
+                new DialogueLine(comander,  "¿Nos permite registrar su teléfono y movimientos bancarios?",        0),
+                new DialogueLine(comander, "Está bien, no tengo nada que ocultar.",                                   0)
+        );
 
-
-        dm.printHistory(
-                bundleMsg.getString("scene"),
-                bundleMsg.getString("character"),
-                bundleMsg.getString("text")
+        // Escena 5: el testigo aporta una pista de última hora
+        List<DialogueLine> scene5 = List.of(
+                new DialogueLine(comander,    "Disculpen, olvidé decirles algo importante.",                      0),
+                new DialogueLine(detective,  "Adelante, señora Pérez.",                                            0),
+                new DialogueLine(comander,    "Vi a una figura encapuchada salir corriendo con un maletín.",      1000),
+                new DialogueLine(detective,  "¿Hacia dónde fue esa persona?",                                     0),
+                new DialogueLine(comander,    "Se metió por la calle del Olmo, justo al lado de la panadería.",   0),
+                new DialogueLine(detective,  "Apúntalo: posible ruta de huida. Gracias.",                        0)
         );
 
 
-        Scanner scanner = new Scanner(System.in);
-        boolean exit = false;
-        while (!exit) {
-            iniciar(detective, viewpoint);
+
+        while (true) {
+            System.out.println("\n--- MENÚ DE DIÁLOGOS ---");
+            System.out.print("Elige (a/b/c) o cualquier otra tecla para salir: ");
+            String op = sc.next().trim().toLowerCase();
+            if (!op.equals("a") && !op.equals("b") && !op.equals("c")) {
+                System.out.println("Saliendo del menú de diálogos.");
+                break;
+            }
+            List<DialogueLine> nextScene = switch (op) {
+                case "a" -> scene3;
+                case "b" -> scene4;
+                default  -> scene5;
+            };
+            dm.loadScene(new DialogueScene(nextScene));
+            dm.start();
         }
-    }
+
+        
+        dm.printHistory(
+                    bundleMsg.getString("scene"),
+                    bundleMsg.getString("character"),
+                    bundleMsg.getString("text")
+            );
+
+
+            Scanner scanner = new Scanner(System.in);
+            boolean exit = false;
+            while (!exit) {
+                iniciar(detective, viewpoint);
+            }
+        }
 
 
     /**
