@@ -79,18 +79,14 @@ public class DialogueManager {
                                     .max().orElse(0)
                     );
                     // 3. Crear separador
-                    String sep = "+"
-                            + "-".repeat(maxSpeaker + 2)
-                            + "+"
-                            + "-".repeat(maxText + 2)
-                            + "+";
+                    String sep = STR."+\{"-".repeat(maxSpeaker + 2)}+\{"-".repeat(maxText + 2)}+";
                     // 4. Imprimir cabecera y tabla
-                    System.out.printf("%n==== "+ scenes +" %d ====%n%s%n", scene, sep);
-                    System.out.printf("| %-" + maxSpeaker + "s | %-" + maxText + "s |%n", characters, texts);
+                    System.out.printf(STR."%n==== \{scenes} %d ====%n%s%n", scene, sep);
+                    System.out.printf(STR."| %-\{maxSpeaker}s | %-\{maxText}s |%n", characters, texts);
                     System.out.println(sep);
                     rows.forEach(e ->
                             System.out.printf(
-                                    "| %-" + maxSpeaker + "s | %-" + maxText + "s |%n",
+                                    STR."| %-\{maxSpeaker}s | %-\{maxText}s |%n",
                                     e.line().speaker().getName(),
                                     e.line().text()
                             )
