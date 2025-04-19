@@ -262,7 +262,7 @@ public static void main (String[] argumentos) throws Exception {
             dm.start();
         }
 
-        
+
         dm.printHistory(
                     bundleMsg.getString("scene"),
                     bundleMsg.getString("character"),
@@ -276,7 +276,6 @@ public static void main (String[] argumentos) throws Exception {
                 iniciar(detective, viewpoint);
             }
         }
-
 
     /**
      * DECLARACIÓN DE FUNCIONES AQUÍ
