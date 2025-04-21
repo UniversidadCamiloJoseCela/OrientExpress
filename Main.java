@@ -1,89 +1,146 @@
 import characters.*;
+import dialog.DialogueLine;
+import dialog.DialogueManager;
+import dialog.DialogueScene;
 import map.*;
 
-import javax.swing.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
 
-public class Main {
-    public static void main (String[] argumentos) {
-
-        // Char...
-        Detective detective = new Detective("Hercules Poirot", 38, false, " Famoso detective belga,\n" +
-                " resuelve un robo en la iglesia del Santo Sepulcro en Jerusalen\n" +
-                " tambien estuvo en Nadiekistan resolviendo un caso hace 9 anyos donde con la ayuda de un alcade\n" +
-                " pudo resolver un triple homicidio en el rio que pasaba por la midad de toda la ciudad, el caso\n" +
-                " se conocio como el Asesinato de los naipes, y forma parte de Scotland Yard donde conocio a Sherlock Holmes",
-                "Meticuloso, Vanidoso, Cortes, Maquiavelico");
+public static void main (String[] argumentos) throws Exception {
 
 
-        DetectiveAssistant detectiveAssistant = new DetectiveAssistant("Robin Retos",18,false,"Lleva trabajando en una granja desde muy pequeño, \n"+
-                "es superdotado y empezó a estudiar en la universidad a los 14 años. Terminó la carrera en dos años.\n"
-                + "Descubrió La Ley de la Gravedad","Calculador, superdotado, precavido, carismatico, intuitivo");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Seleccione lenguaje: en, es, ro, ru, ch ");
+
+        Locale locale = Locale.forLanguageTag(sc.next().trim());
+        ResourceBundle bundleMsg = ResourceBundle.getBundle("i18n.messages", locale); // Texto del juego
+        ResourceBundle bundleDialog = ResourceBundle.getBundle("i18n.dialogues", locale); // Dialogo del juego
 
 
-        LocomotiveDriver locomotiveDriver = new LocomotiveDriver("Louis",45,false,"Conduce trenes desde los 20 años\n"+
-                "Pidio dinero a un prestamista para su hija enferma.\n" + "Trabaja todo el día para darle a su hija la vida que el nunca tuvo.", "Luchador, confiable, humilde, adaptativo"
-                );
 
-        TrainCoalman trainCoalman = new TrainCoalman("Bob",56,false, "Desde pequeño tuvo que trabajar para comer, no tiene familia. \n" +
-                "Siempre ha estado solo, no se sabe mucho de el, su vida es un misterio.","Enclenque, reservado, desconfiado y aprensivo " );
-
-        Comander comander = new Comander("Juan Carlos", 87, false, "Un gran comandante condecorado,\n" +
-                " con grandes hazanyas en Nadiekistan  hace 50 anyos, que duro por 5 anyos.\n" +
-                " alli rescato de un metro a un ninyo abandonado por su madre, el cual se apiado del ninyo y lo llevo a un orfanato,\n desde" +
-                "entonces no supo nada mas de el\n" +
-                "Durante 3 anyos estuvo en Las vegas como un ludopata empedernido,\n" +
-                "en donde ocurrio un asesinato en el casino en el que se encontraba.", "PTSD, Soberbio, Culto, Abordable");// en el casino conoce a maria por el caso
+        DialogueManager dm = new DialogueManager();
 
 
-        Mayor mayor = new Mayor("Paco Fiestas", 50, false, "Alcalde de VillaNadie." +
-                "\n Ganador del premio mejor alcalde del país Nadiekistan." +
-                "\n Sustenta el cargo desde los 20 anyos, y desde encontonces no ha habido contendiente " +
-                "que le haya hecho frente gracias a sus sofismas y medias verdades. " +
-                "\n Su mayor hazanya politica ha sido la de implementar bolsas de perro en los parques." +
-                "Acto seguido, para paliar dicho gasto subió los impuestos un 20%." +
-                "Sus votantes principales se encuentran entre 50 y 90 anyos.", "Sosegado, amoral, narcisista y lujurioso.");
+        Detective detective = new Detective(
+                bundleMsg.getString("detective.name"),
+                38,
+                false,
+                bundleMsg.getString("detective.bio"),
+                bundleMsg.getString("detective.traits")
+        );
 
 
-        Criminologist criminologist = new Criminologist("Maria", 29, true, "Experiencia laboral: " +
-                "Ha trabajado en CSI Las Vegas durante 4 anyos,\n" +
-                "habla 4 idiomas diferentes" + " y ha hecho" +
-                " conferencias en 20 paises\nsobre sus investigaciones criminalisticas", "Extrovertida, curiosa, detallista y honesta");
+        DetectiveAssistant detectiveAssistant = new DetectiveAssistant(
+                bundleMsg.getString("detectiveAssistant.name"),
+                18,
+                false,
+                bundleMsg.getString("detectiveAssistant.bio"),
+                bundleMsg.getString("detectiveAssistant.traits")
+        );
 
+        LocomotiveDriver locomotiveDriver = new LocomotiveDriver(
+                bundleMsg.getString("locomotiveDriver.name"),
+                45,
+                false,
+                bundleMsg.getString("locomotiveDriver.bio"),
+                bundleMsg.getString("locomotiveDriver.traits")
+        );
 
-        Novelist novelist = new Novelist("Anne with a E", 43, true, "Ha escrito 10 novelas, tiene un premio Nobel de literatura,\n" +
-                "El premio Nobel lo gano por una Novela Negra", "Rigurosa, imaginativa, esceptica, cautelosa, solitaria e introvertida");
+        TrainCoalman trainCoalman = new TrainCoalman(
+                bundleMsg.getString("trainCoalman.name"),
+                56,
+                false,
+                bundleMsg.getString("trainCoalman.bio"),
+                bundleMsg.getString("trainCoalman.traits")
+        );
 
-        BaggageRoom baggageRoom= new BaggageRoom("Deja maletas","Es todo un vagon preparado exclusivamente con la intencion  de martener las \n" +
-                "pertenencias a salvo durante todo el viaje.\n" +
-                "Se trata de dos filas con una altura suficiente para 4 maletas en horizontal con un grosor de tres manos,\n" +
-                "cada una de dichas filas estan repartidas en cinco columnas y señalizadas con la habitacion a la que corresponden. ",false);
-        
-        Bathroom bathroom= new Bathroom("Baño de lujo","Curiosamente se trata de uno de los baños mas limpios que veras en tu vida,el cual tiene un riguroso reglaje de limpieza entre viajes.\n" +
-                "Aparte de eso se trata de un baño bastante corriente el cual viene preparado para toda 'emergencia posible'.",false);
+        Comander comander = new Comander(
+                bundleMsg.getString("comander.name"),
+                87,
+                false,
+                bundleMsg.getString("comander.bio"),
+                bundleMsg.getString("comander.traits")
+        );
 
-        Bedroom bedroom= new Bedroom("Habitacion de matrimonio","Es una habitacion decorada con una mesilla de noche y la cama de matrimanio de algodon.\n" +
-                "De colores claros y vibrantes para que la estancia no se haga pesada para el viajero, esta habilitada con un pequeño armario para poder guardar objetos 'personales'. ",false);
+        Mayor mayor = new Mayor(
+                bundleMsg.getString("mayor.name"),
+                50,
+                false,
+                bundleMsg.getString("mayor.bio"),
+                bundleMsg.getString("mayor.traits")
+        );
 
-        Coul coul= new Coul("Punto negro","No es muy necesario decir que se trata del sitio mas sucio de todo el tren por el hecho de almacenar el carbon para alimentar la gran maquina,\n" +
-                "no es mal sitio si quieres deshacerte de algo.", false);//creo que le falta algo
+        Criminologist criminologist = new Criminologist(
+                bundleMsg.getString("criminologist.name"),
+                29,
+                true,
+                bundleMsg.getString("criminologist.bio"),
+                bundleMsg.getString("criminologist.traits")
+        );
 
-        DiningRoom diningRoom= new DiningRoom("El comedor","El comedor esta habilitado con seis mesas semiredondas con vistas por la ventana \n" +
-                "y en el medio una mesa rectangular. Esta adornada con pequeños candelabros de cristal y cuberteria de plata.",false);
-        
-        Kitchen kitchen = new Kitchen("El arte de la alta cocina", "Se trata de una de las zonas más limpias y ordenadas, donde se realizan las preparaciones \n"+
-                "de los menús y platos más codiciados, cuenta con una gran variedad de instrumentos culinarios. Es una zona muy protegida y con acceso restringido", false);
-        Locomotive locomotive = new Locomotive("Locomotora", "Parte crucial del tren, ya que provoca su movimiento. Es el lugar donde encontraremos al maquinista y todos los componentes \n" +
-                "necesarios para el correcto funcionamiento de la máquina, además de las herramientas mecánicas. También nos podemos encontrar a los fogoneros \n "+
-                "encargados de echar el carbón en el fogón, el cual se encuentra en este lugar", false);
-        Lounge lounge = new Lounge("El gran salón", "Aquí nos encontraremos con un muy plácido y relajante área durante las horas del día, y por la noche se transforma en \n"+
-                "un ambiente más sociable y fiestero, para reuniones, bailes y pasar un rato agradable. También hay un barman que se encargará de preparar unos deliciosos cócteles",false);
-         //por donde entrara el personaje, primera escena
-        Viewpoint viewpoint = new Viewpoint("Mirador 'El balcón de los poetas'", "Paraje donde podrás navegar las olas de la imaginación, observar la naturaleza \n"+
-                "e inspirarte. Es el espacio más seguro y privado en ciertos momentos del día.", false);
+        Novelist novelist = new Novelist(
+                bundleMsg.getString("novelist.name"),
+                43,
+                true,
+                bundleMsg.getString("novelist.bio"),
+                bundleMsg.getString("novelist.traits")
+        );
+
+        BaggageRoom baggageRoom = new BaggageRoom(
+                bundleMsg.getString("baggageRoom.name"),
+                bundleMsg.getString("baggageRoom.description"),
+                false
+        );
+
+        Bathroom bathroom = new Bathroom(
+                bundleMsg.getString("bathroom.name"),
+                bundleMsg.getString("bathroom.description"),
+                false
+        );
+
+        Bedroom bedroom = new Bedroom(
+                bundleMsg.getString("bedroom.name"),
+                bundleMsg.getString("bedroom.description"),
+                false
+        );
+
+        Coul coul = new Coul(
+                bundleMsg.getString("coul.name"),
+                bundleMsg.getString("coul.description"),
+                false
+        );
+
+        DiningRoom diningRoom = new DiningRoom(
+                bundleMsg.getString("diningRoom.name"),
+                bundleMsg.getString("diningRoom.description"),
+                false
+        );
+
+        Kitchen kitchen = new Kitchen(
+                bundleMsg.getString("kitchen.name"),
+                bundleMsg.getString("kitchen.description"),
+                false
+        );
+
+        Locomotive locomotive = new Locomotive(
+                bundleMsg.getString("locomotive.name"),
+                bundleMsg.getString("locomotive.description"),
+                false
+        );
+
+        Lounge lounge = new Lounge(
+                bundleMsg.getString("lounge.name"),
+                bundleMsg.getString("lounge.description"),
+                false
+        );
+
+        Viewpoint viewpoint = new Viewpoint(
+                bundleMsg.getString("viewpoint.name"),
+                bundleMsg.getString("viewpoint.description"),
+                false
+        );
+
+        System.out.println(detectiveAssistant.getDescription());
 
 
 
@@ -108,46 +165,117 @@ public class Main {
         orientExpress.getArrCarriages().add(viewpoint);
         detective.setEmoji("\uD83D\uDC3B");
         comander.setEmoji("\uD83D\uDC36");
-        //orientExpress.getArrCarriages().getFirst().printMap();
+
+
+        List<DialogueLine> lines = List.of(
+                new DialogueLine(
+                        detective,
+                        bundleDialog.getString("scene1.line1.text"),
+                        0
+                ),
+                new DialogueLine(
+                        comander,
+                        bundleDialog.getString("scene1.line2.text"),
+                        0
+                ),
+                new DialogueLine(
+                        detective,
+                        bundleDialog.getString("scene1.line3.text"),
+                        1000    // avanza solo tras 1s
+                ),
+                new DialogueLine(
+                        detective,
+                        bundleDialog.getString("scene1.line4.text"),
+                        0
+                ),
+                new DialogueLine(
+                        detective,
+                        bundleDialog.getString("scene1.line5.text"),
+                        0
+                )
+        );
+
+
+        dm.loadScene(new DialogueScene(lines));
+        dm.start();
 
 
 
-        Scanner scanner = new Scanner(System.in);
-        boolean exit = false;
-        while (!exit) {
-            System.out.println("\n¡Buenas! Si quiere empezar esta nueva aventura escriba 'jugar'. \nSi no quiere entrar, " +
-                    "escriba cualquier otra cosa.\n" );
+        List<DialogueLine> scene2 = List.of(
+                new DialogueLine(detective,  "Comisario, la señora Martínez dice que escuchó gritos anoche.",         0),
+                new DialogueLine(comander,  "¿A qué hora exactamente?",                                            0),
+                new DialogueLine(comander,     "Sobre las 2:17 de la madrugada, algo crujió en el pasillo.",            1000),
+                new DialogueLine(detective,  "¿Reconoce algún sonido en particular?",                                0),
+                new DialogueLine(comander,     "Sí, como si alguien arrastrara muebles pesados.",                       0),
+                new DialogueLine(detective,  "Bien. Vamos al piso 4, al apartamento 412.",                            0),
+                new DialogueLine(comander,"(Abre la puerta con desgana) Buenas… ¿En qué puedo ayudarles?",      0),
+                new DialogueLine(detective,  "Señor López, tenemos testigos que oyeron ruidos extraños en su casa.", 0),
+                new DialogueLine(comander,"Eso no puede ser… yo estaba durmiendo todo el tiempo.",                  1000),
+                new DialogueLine(comander,  "Necesitamos que nos acompañe a la comisaría para unas preguntas.",     0)
+        );
 
-            System.out.print("Escribe 'jugar': ");
-            if(scanner.nextLine().trim().equalsIgnoreCase("jugar")){
-                iniciar(detective, viewpoint);
+        List<DialogueLine> scene3 = List.of(
+                new DialogueLine(comander,    "He recogido huellas y muestras de sangre en el suelo.",             0),
+                new DialogueLine(detective,  "¿Algún hallazgo relevante?",                                       0),
+                new DialogueLine(comander,    "El patrón de la sangre indica dos personas heridas.",              1000),
+                new DialogueLine(detective,  "Entonces había un segundo agresor o víctima móvil.",              0),
+                new DialogueLine(comander,    "También hay fibras de tela negra cerca de la ventana.",           0),
+                new DialogueLine(detective,  "Muy bien. Asegura todo y llévate las muestras al laboratorio.",  0)
+        );
 
-            } else{
-                exit = true;
+        // Escena 4: interrogatorio al sospechoso
+        List<DialogueLine> scene4 = List.of(
+                new DialogueLine(detective,  "Señor López, ¿dónde estaba usted entre las dos y las tres de la mañana?", 0),
+                new DialogueLine(comander, "En mi piso, durmiendo. Nadie puede confirmarlo.",                     0),
+                new DialogueLine(detective,  "Tenemos testigos que oyeron su voz en el rellano.",                    1000),
+                new DialogueLine(comander, "Eso es imposible… ¡nunca salí de mi casa!",                              0),
+                new DialogueLine(comander,  "¿Nos permite registrar su teléfono y movimientos bancarios?",        0),
+                new DialogueLine(comander, "Está bien, no tengo nada que ocultar.",                                   0)
+        );
+
+        // Escena 5: el testigo aporta una pista de última hora
+        List<DialogueLine> scene5 = List.of(
+                new DialogueLine(comander,    "Disculpen, olvidé decirles algo importante.",                      0),
+                new DialogueLine(detective,  "Adelante, señora Pérez.",                                            0),
+                new DialogueLine(comander,    "Vi a una figura encapuchada salir corriendo con un maletín.",      1000),
+                new DialogueLine(detective,  "¿Hacia dónde fue esa persona?",                                     0),
+                new DialogueLine(comander,    "Se metió por la calle del Olmo, justo al lado de la panadería.",   0),
+                new DialogueLine(detective,  "Apúntalo: posible ruta de huida. Gracias.",                        0)
+        );
+
+
+
+        while (true) {
+            System.out.println("\n--- MENÚ DE DIÁLOGOS ---");
+            System.out.print("Elige (a/b/c) o cualquier otra tecla para salir: ");
+            String op = sc.next().trim().toLowerCase();
+            if (!op.equals("a") && !op.equals("b") && !op.equals("c")) {
+                System.out.println("Saliendo del menú de diálogos.");
+                break;
             }
-
+            List<DialogueLine> nextScene = switch (op) {
+                case "a" -> scene3;
+                case "b" -> scene4;
+                default  -> scene5;
+            };
+            dm.loadScene(new DialogueScene(nextScene));
+            dm.start();
         }
 
 
+        dm.printHistory(
+                    bundleMsg.getString("scene"),
+                    bundleMsg.getString("character"),
+                    bundleMsg.getString("text")
+            );
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
-
+            Scanner scanner = new Scanner(System.in);
+            boolean exit = false;
+            while (!exit) {
+                iniciar(detective, viewpoint);
+            }
+        }
 
     /**
      * DECLARACIÓN DE FUNCIONES AQUÍ
@@ -166,4 +294,5 @@ public class Main {
 
     }
 
-}
+
+
