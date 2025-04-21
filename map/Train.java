@@ -10,6 +10,7 @@ Por defecto hay un conjunto ordenado de vagones.
     - Predefinido: vagones ordenados por defecto.
     - Personalizado: vagones ordenados por creación de nuevo array de vagones.
  */
+
 public class Train {
 
     public static ArrayList<Carriage> arrCarriages = new ArrayList<Carriage>();

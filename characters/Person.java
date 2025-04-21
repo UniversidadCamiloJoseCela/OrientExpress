@@ -1,5 +1,6 @@
 package characters;
 
+
 import map.Carriage;
 import map.Train;
 

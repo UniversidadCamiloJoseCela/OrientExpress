@@ -7,6 +7,7 @@ import characters.Person;
 import java.util.Arrays;
 import java.util.Objects;
 
+
 public class Carriage {
 
     private String carriageName;
