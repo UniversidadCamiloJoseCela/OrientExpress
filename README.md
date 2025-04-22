@@ -32,7 +32,7 @@ El comandante Juan Carlos se aproxima a Bob, el fogonero, mostrando una mezcla d
 
 —De muchos lugares. No tengo historia que contar —responde sin levantar la vista.
 
-La noche avanza, y los pasajeros se retiran a sus camarotes, inconscientes del giro drástico que tomará su travesía.(el narrador no puede dar este tipo de datos)
+La noche avanza, y los pasajeros se retiran a sus camarotes. El horizonte guarda secretos que solo podrán descubrir al caminar hacia él.
 
 Martes por la mañana
 
