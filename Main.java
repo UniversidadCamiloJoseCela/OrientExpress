@@ -2,7 +2,12 @@ import characters.*;
 import dialog.DialogueLine;
 import dialog.DialogueManager;
 import dialog.DialogueScene;
-import map.*;
+import world.interactable.InteractionResult;
+import world.item.Door;
+import world.map.Carriage;
+import world.map.CarriageBuilder;
+import world.map.CarriageType;
+import world.map.CellType;
 
 import java.util.*;
 
@@ -15,7 +20,6 @@ public static void main (String[] argumentos) throws Exception {
         Locale locale = Locale.forLanguageTag(sc.next().trim());
         ResourceBundle bundleMsg = ResourceBundle.getBundle("i18n.messages", locale); // Texto del juego
         ResourceBundle bundleDialog = ResourceBundle.getBundle("i18n.dialogues", locale); // Dialogo del juego
-
 
 
         DialogueManager dm = new DialogueManager();
@@ -85,86 +89,6 @@ public static void main (String[] argumentos) throws Exception {
                 bundleMsg.getString("novelist.bio"),
                 bundleMsg.getString("novelist.traits")
         );
-
-        BaggageRoom baggageRoom = new BaggageRoom(
-                bundleMsg.getString("baggageRoom.name"),
-                bundleMsg.getString("baggageRoom.description"),
-                false
-        );
-
-        Bathroom bathroom = new Bathroom(
-                bundleMsg.getString("bathroom.name"),
-                bundleMsg.getString("bathroom.description"),
-                false
-        );
-
-        Bedroom bedroom = new Bedroom(
-                bundleMsg.getString("bedroom.name"),
-                bundleMsg.getString("bedroom.description"),
-                false
-        );
-
-        Coul coul = new Coul(
-                bundleMsg.getString("coul.name"),
-                bundleMsg.getString("coul.description"),
-                false
-        );
-
-        DiningRoom diningRoom = new DiningRoom(
-                bundleMsg.getString("diningRoom.name"),
-                bundleMsg.getString("diningRoom.description"),
-                false
-        );
-
-        Kitchen kitchen = new Kitchen(
-                bundleMsg.getString("kitchen.name"),
-                bundleMsg.getString("kitchen.description"),
-                false
-        );
-
-        Locomotive locomotive = new Locomotive(
-                bundleMsg.getString("locomotive.name"),
-                bundleMsg.getString("locomotive.description"),
-                false
-        );
-
-        Lounge lounge = new Lounge(
-                bundleMsg.getString("lounge.name"),
-                bundleMsg.getString("lounge.description"),
-                false
-        );
-
-        Viewpoint viewpoint = new Viewpoint(
-                bundleMsg.getString("viewpoint.name"),
-                bundleMsg.getString("viewpoint.description"),
-                false
-        );
-
-        System.out.println(detectiveAssistant.getDescription());
-
-
-
-
-        Train orientExpress = new Train("El orient express");
-
-        //Creation of empty(null objects) bidimensional array
-        Object[][] mapping = new Object[3][7];
-
-
-            for (int i = 0; i < mapping.length; i++) {
-                // Loop through each column in the current row
-                Arrays.fill(mapping[i], "X");
-                if(i % 2 != 0){
-                    mapping[i][0] = detective;
-                    mapping[i][mapping[i].length-1] = comander;
-                }
-            }
-
-
-        viewpoint.setMapping(mapping);
-        orientExpress.getArrCarriages().add(viewpoint);
-        detective.setEmoji("\uD83D\uDC3B");
-        comander.setEmoji("\uD83D\uDC36");
 
 
         List<DialogueLine> lines = List.of(
@@ -267,32 +191,93 @@ public static void main (String[] argumentos) throws Exception {
                     bundleMsg.getString("scene"),
                     bundleMsg.getString("character"),
                     bundleMsg.getString("text")
-            );
+        );
 
 
-            Scanner scanner = new Scanner(System.in);
-            boolean exit = false;
-            while (!exit) {
-                iniciar(detective, viewpoint);
+
+    // Crear vagones
+    List<Carriage> train = new ArrayList<>();
+    for (CarriageType type : CarriageType.values()) {
+        // En vez de .setLayout(CarriageType.DINING_MATRIX)
+        // usamos la matriz que está “guardada” en el enum
+        CarriageBuilder b = new CarriageBuilder(type)
+                .setLayout(type.getMatrix());
+        int idx = type.ordinal();
+        if (idx > 0)   b.addDoor(1, 0);
+        if (idx < CarriageType.values().length - 1) b.addDoor(1, 6);
+        train.add(b.build());
+    }
+
+
+    // Mapa de puertas a destino [vagónÍndice,row,col]->destÍndice
+    Map<String,Integer> doorMap = new HashMap<>();
+    for (int i = 0; i < train.size(); i++) {
+        Carriage c = train.get(i);
+        for (Door d : c.getDoors()) {
+            int dest = (d.y() == 0) ? i - 1 : i + 1;
+            doorMap.put(STR."\{i},\{d.x()},\{d.y()}", dest);
+        }
+    }
+
+    doorMap.forEach((key, value) -> System.out.println(STR."\{key}:\{value}"));
+
+    Person player = new Person("Flor", 1,true,"HGUAD", "d");
+
+
+    System.out.println("Usa W/A/S/D para moverte, E para interactuar, Q para salir.");
+    while (true) {
+        Carriage current = train.get(player.getCurrentCarriage());
+        System.out.println("Vagón: " + current.getType());
+        current.render(player);
+        System.out.print("> ");
+        String cmd = sc.nextLine().toUpperCase();
+        if (cmd.equals("Q")) break;
+        int newR = player.getRow();
+        int newC = player.getCol();
+        switch (cmd) {
+            case "W": newR--; break;
+            case "S": newR++; break;
+            case "A": newC--; break;
+            case "D": newC++; break;
+            case "E": {
+                // interactuar pista obligatorio
+                var cell = current.getLayout().cellAt(player.getRow(), player.getCol());
+                if (cell.isItems()) {
+                    InteractionResult res = cell.getItems().interact(player);
+                    System.out.println(res.message());
+                    cell.setItems(null);
+                    System.out.println("ADSAAADSADSDADSDASAD");
+                } else {
+                    // interactuar puerta
+                    String key = STR."\{player.getCurrentCarriage()},\{player.getRow()},\{player.getCol()}";
+                    System.out.println(key);
+                    if (doorMap.containsKey(key)) {
+                        int dest = doorMap.get(key);
+                        player.moveToCarriage(dest);
+                        // posiciona al otro lado de la puerta
+                        player.setRow(1);
+                        player.setCol((player.getCol() == 0) ? 6 : 0);
+                        System.out.println(STR."\{player.getRow()} \{player.getCol()}");
+                        System.out.println(STR."Te mueves al vagón \{train.get(dest).getType()}");
+
+                    }else{
+                        System.out.println("No hay door");
+                    }
+                }
+                System.out.print("QUE PASA ");
+                continue;
             }
         }
-
-    /**
-     * DECLARACIÓN DE FUNCIONES AQUÍ
-     */
-
-    //Iniciar juego
-    private static void iniciar(Detective detective, Carriage carriage) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("\nBienvenido, muevase libremente por el escenario");
-        while(true){
-            carriage.printMap();
-            //movimiento del personaje principal
-            System.out.print("W: arriba, S: abajo, D: derecha, A: izquierda -> ");
-            detective.move(scanner.nextLine(), carriage);
+        // mover jugador si es transitable
+        if (current.isWalkable(newR, newC)) {
+            player.setRow(newR);
+            player.setCol(newC);
         }
-
     }
+    sc.close();
+    System.out.println("¡Juego terminado!");
+
+        }
 
 
 
