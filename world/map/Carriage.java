@@ -64,7 +64,7 @@ public class Carriage {
                 } else {
                     InteriorCell cell = layout.cellAt(r, c);
                     String emoji;
-                    if (cell.isItems()) {
+                    if (cell.getItem()) {
                         emoji = "💡";
                     } else {
                         int finalR = r;

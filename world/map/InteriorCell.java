@@ -10,7 +10,7 @@ public class InteriorCell {
 
     // Para guardar todos los objetos diferentes pero que al heredar
     // de interaccionable puedas guardarlos
-    private Interactable items;
+    private Interactable item;
 
     public InteriorCell(CellType type) {
         this.type = type;
@@ -32,16 +32,16 @@ public class InteriorCell {
         this.npcs = npcs;
     }
 
-    public void setItems(Interactable items) {
-        this.items = items;
+    public void setItem(Interactable item) {
+        this.item = item;
     }
 
-    public boolean isItems() {
-        return this.items != null;
+    public boolean getItem() {
+        return this.item != null;
     }
 
     public Interactable getItems() {
-        return items;
+        return item;
     }
 
     public Person getNpcs() {

@@ -1,7 +1,8 @@
 package world.interactable;
 
+import characters.Detective;
 import characters.Person;
 
 public interface Interactable {
-    InteractionResult interact(Person player);
+    InteractionResult interact(Detective player);
 }

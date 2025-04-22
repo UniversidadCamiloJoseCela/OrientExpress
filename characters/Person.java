@@ -16,7 +16,6 @@ public class Person {
     private String description;
     private String adjetives;
     private String emoji;
-    private List<Clue> clues = new ArrayList<>();
 
     public String getEmoji() {
         return emoji;
@@ -46,7 +45,6 @@ public class Person {
 
     public void moveToCarriage(int index) {
         this.currentCarriage = index;
-        this.row = 1; this.col = 1;
     }
 
     public void moveUp()    { if (row > 0) row--; }
@@ -55,15 +53,11 @@ public class Person {
     public void moveRight() { if (col < CarriageLayout.COLS - 1) col++; }
 
 
-    public void addClue(Clue clue) { clues.add(clue); }
+
 
     // Setter and getters
 
-    public void setClues(List<Clue> clues) {
-        this.clues = clues;
-    }
 
-    public List<Clue> getClues()    { return clues; }
 
     public String getName() {
         return name;

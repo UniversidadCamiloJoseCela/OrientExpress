@@ -3,11 +3,11 @@ import dialog.DialogueLine;
 import dialog.DialogueManager;
 import dialog.DialogueScene;
 import world.interactable.InteractionResult;
+import world.item.Clue;
 import world.item.Door;
 import world.map.Carriage;
 import world.map.CarriageBuilder;
 import world.map.CarriageType;
-import world.map.CellType;
 
 import java.util.*;
 
@@ -221,8 +221,11 @@ public static void main (String[] argumentos) throws Exception {
 
     doorMap.forEach((key, value) -> System.out.println(STR."\{key}:\{value}"));
 
-    Person player = new Person("Flor", 1,true,"HGUAD", "d");
+    Detective player = new Detective("Flor", 1,true,"HGUAD", "d");
 
+    // Añadimos una pista en BEDROOM (índice 2)
+    Carriage bedroom = train.get(2);
+    bedroom.getLayout().cellAt(0,0).setItem(new Clue("12","adasda"));
 
     System.out.println("Usa W/A/S/D para moverte, E para interactuar, Q para salir.");
     while (true) {
@@ -242,11 +245,10 @@ public static void main (String[] argumentos) throws Exception {
             case "E": {
                 // interactuar pista obligatorio
                 var cell = current.getLayout().cellAt(player.getRow(), player.getCol());
-                if (cell.isItems()) {
+                if (cell.getItem()) {
                     InteractionResult res = cell.getItems().interact(player);
                     System.out.println(res.message());
-                    cell.setItems(null);
-                    System.out.println("ADSAAADSADSDADSDASAD");
+                    cell.setItem(null);
                 } else {
                     // interactuar puerta
                     String key = STR."\{player.getCurrentCarriage()},\{player.getRow()},\{player.getCol()}";
@@ -255,9 +257,10 @@ public static void main (String[] argumentos) throws Exception {
                         int dest = doorMap.get(key);
                         player.moveToCarriage(dest);
                         // posiciona al otro lado de la puerta
+                        System.out.println(STR."ANTES\{player.getRow()} \{player.getCol()}");
                         player.setRow(1);
                         player.setCol((player.getCol() == 0) ? 6 : 0);
-                        System.out.println(STR."\{player.getRow()} \{player.getCol()}");
+                        System.out.println(STR."DESPUES\{player.getRow()} \{player.getCol()}");
                         System.out.println(STR."Te mueves al vagón \{train.get(dest).getType()}");
 
                     }else{
