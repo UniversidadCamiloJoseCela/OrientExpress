@@ -67,13 +67,13 @@ public class DialogueManager {
                 .forEach((scene, rows) -> {
                     // 2. Calcular anchos usando streams
                     int maxSpeaker = Math.max(
-                            "Personaje".length(),
+                            characters.length(),
                             rows.stream()
                                     .mapToInt(e -> e.line().speaker().getName().length())
                                     .max().orElse(0)
                     );
                     int maxText = Math.max(
-                            "Texto".length(),
+                            texts.length(),
                             rows.stream()
                                     .mapToInt(e -> e.line().text().length())
                                     .max().orElse(0)
