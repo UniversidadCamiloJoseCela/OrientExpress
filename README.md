@@ -279,4 +279,121 @@ Poirot cierra la declaración con una mirada melancólica.
 
 El tren sigue detenido. Afuera, la tormenta se disipa lentamente, como si diera paso a una verdad que nunca será completamente revelada.
 
+VERSION 4 (POIROT ASESINO)
+
+Martes – Nieve y Sangre
+La tormenta de nieve arremetía sin tregua. En el vagón comedor, Poirot tomaba su desayuno con parsimonia. Anne, la novelista, garabateaba en su libreta.
+
+—¿Ya bosquejando su crimen literario? —preguntó Poirot con media sonrisa.
+
+—A veces los crímenes no se escriben, simplemente ocurren —respondió ella sin apartar la vista del papel.
+
+Robin se acercó con un periódico algo arrugado.
+
+—El prestamista sigue siendo noticia. Parece que su lista de enemigos era más larga que la del tren.
+
+María, que leía a unos asientos de distancia, intervino:
+
+—Ese hombre arruinó a docenas de personas. Era experto en el chantaje emocional… y económico.
+
+—¿Creen que alguien de este tren lo conocía? —preguntó Robin.
+
+—Creo que alguien lo odiaba —respondió María.
+
+Mientras tanto, en la cabina, Bob y Louis observaban los copos espesos.
+
+—Esto se está poniendo feo —dijo Bob—. Si sigue así, habrá que frenar.
+
+—No me gusta esta sensación. Como si algo estuviera por quebrarse —respondió Louis, mirando por la ventanilla.
+
+Y entonces, el grito.
+
+Los pasajeros acudieron al camarote 6. El cuerpo del prestamista yacía sobre la cama, cubierto de sangre. Apuñalado. Desordenado. Brutal.
+
+Poirot no se inmutó.
+
+—Las heridas son irregulares… como si varias manos se hubieran turnado.
+
+—O una sola con muchas emociones —comentó María.
+
+—Sea como fuere —dijo Poirot, observando la escena con inquietante frialdad—, el asesino viaja entre nosotros.
+
+Miércoles – Máscaras y Mentiras
+La tormenta arreciaba. El tren avanzaba lentamente por una ruta blanca y desierta.
+
+Poirot interrogó al comandante Juan Carlos, quien se mostraba alterado.
+
+—Vi una figura encapuchada en el pasillo anoche. Caminaba hacia los camarotes, pero no logré ver su rostro.
+
+—¿Y no dio la alarma? —preguntó Poirot, afilado.
+
+—Pensé que era una sombra. O una pesadilla. No lo sé.
+
+Louis negó haber visto algo extraño. Bob, como de costumbre, permanecía en silencio.
+
+—Él lo conocía —dijo María—. Tenía acceso a los compartimentos, a los horarios. ¿No es así, Bob?
+
+Bob apretó los labios.
+
+—No lo maté. Pero sí lo conocía. Me chantajeó. Como hizo con todos.
+
+Paco Fiestas, arrogante, fue menos reservado.
+
+—Ese hombre y yo teníamos negocios antiguos. Y sí, acabaron mal. Pero créame, monsieur Poirot, no soy tan burdo para mancharme las manos.
+
+Mientras tanto, Robin y María revisaban pertenencias de la víctima. Encontraron cartas dirigidas a varios pasajeros, cada una con una amenaza distinta.
+
+—Sabía algo de todos. Nos tenía atrapados —murmuró Robin.
+
+Esa noche, Anne se acercó a Poirot mientras él tomaba notas.
+
+—¿Le intriga este caso, o ya lo resolvió?
+
+—Hay algo… fuera de lugar —respondió Poirot, pensativo.
+
+—¿Qué cosa?
+
+Poirot sonrió, sin humor:
+
+—Quizá… yo.
+
+Jueves – Verdades veladas
+El tren estaba detenido. La tormenta había cubierto los rieles, aislándolos por completo.
+
+Los ánimos se tensaban.
+
+—Las coartadas no se sostienen —afirmó María—. Todos tienen vacíos.
+
+Robin analizó las huellas:
+
+—En el pasillo había al menos tres tipos distintos. No fue un asesino. Fueron varios. O alguien que quiso que lo creyéramos.
+
+Juan Carlos sudaba frío.
+
+—No somos asesinos… ¿verdad?
+
+Anne entró al vagón principal con una hoja mecanografiada.
+
+—Esto no lo escribí yo —dijo, mostrando el texto—. Lo encontré en el compartimento de Poirot. Es… una narración del asesinato. Detallada. Escrito como si ya supiera todo.
+
+Todos se giraron hacia el detective. Poirot se levantó con calma.
+
+—Damas y caballeros. He llegado a dos conclusiones.
+
+Silencio.
+
+—La primera: este asesinato fue premeditado, alimentado por rencores comunes.
+
+Pausa.
+
+—La segunda… es que el asesino no fue atrapado. Puede que esté frente a ustedes.
+
+—¿Está diciendo…? —balbuceó Robin.
+
+—¿Quién decide la verdad en un crimen así? ¿El investigador? ¿El asesino? ¿O el lector? —dijo Poirot, en voz baja.
+
+Un silencio se apoderó del vagón. Nadie respiraba.
+
+Afuera, la nieve cubría todo. Adentro, la duda se instalaba como un huésped más.
+
 
