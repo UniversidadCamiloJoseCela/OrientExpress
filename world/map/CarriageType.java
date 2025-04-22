@@ -8,8 +8,8 @@ import static world.map.CellType.*;
 public enum CarriageType {
     DINNER(createDiningMatrix()),
     COAL(createKitchenMatrix()),
+    BATHROOM(createBathroomMatrix()),
     BEDROOM(createSleeperMatrix());
-
 
     private final CellType[][] matrix;
 
@@ -26,6 +26,14 @@ public enum CarriageType {
             System.arraycopy(matrix[r], 0, copy[r], 0, CarriageLayout.COLS);
         }
         return copy;
+    }
+
+    private static CellType[][] createBathroomMatrix() {
+        return new CellType[][]{
+                {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR},
+                {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR},
+                {FLOOR, FLOOR, FLOOR, FLOOR,  FLOOR, FLOOR, FLOOR}
+        };
     }
 
     private static CellType[][] createDiningMatrix() {

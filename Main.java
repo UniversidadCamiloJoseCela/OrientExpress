@@ -262,10 +262,6 @@ public static void main (String[] argumentos) throws Exception {
         }
 
 
-
-
-
-
         // Crear vagones
         List<Carriage> train = new ArrayList<>();
         for (CarriageType type : CarriageType.values()) {
@@ -278,7 +274,6 @@ public static void main (String[] argumentos) throws Exception {
             if (idx < CarriageType.values().length - 1) b.addDoor(1, 6);
             train.add(b.build());
         }
-
 
         // Mapa de puertas a destino [vagónÍndice,row,col]->destÍndice
         Map<String,Integer> doorMap = new HashMap<>();
@@ -295,11 +290,10 @@ public static void main (String[] argumentos) throws Exception {
         Detective player = new Detective("Flor", 1,true,"HGUAD", "d");
 
         // Añadimos una pista en BEDROOM (índice 2)
-        Carriage bedroom = train.get(2);
+        Carriage bedroom = train.get(0);
         bedroom.getLayout().cellAt(0,0).setItem(new Clue("12","adasda"));
-        bedroom.getLayout().cellAt(1,2).setNpc(
-                new Criminologist("Flor", 1,true,"HGUAD", "d")
-        );
+        bedroom.getLayout().cellAt(1,2).setNpc(comander); // usar table como colision
+        bedroom.getLayout().cellAt(1,4).setNpc(criminologist);
 
 
         System.out.println("Usa W/A/S/D para moverte, E para interactuar, Q para salir, H para historial, P para pistas.");
