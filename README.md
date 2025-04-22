@@ -194,5 +194,89 @@ Silencio absoluto. Afuera, la nieve continúa cayendo.
 —Resta decidir qué verdad será comunicada… y cuál será sepultada junto al veneno, bajo este manto blanco.
 
 VERSION 3
+.......
+......
+.....
+Martes por la mañana
+El tren avanza lentamente entre la nieve que empieza a acumularse en los bordes de la vía. Poirot, elegante como siempre, disfruta de su desayuno en el vagón comedor. Anne, la novelista, toma notas distraídamente mientras bebe su café. Robin hojea un periódico, como siempre, inquieto por los misterios del mundo.
+
+—El caso del prestamista sigue en portada —dice Robin, levantando la vista—. Dicen que se estaba hundiendo… muchos enemigos, muchas amenazas.
+
+—Un hombre que pisa tantos dedos termina con los suyos rotos —comenta María, uniéndose a la conversación con mirada aguda.
+
+Mientras tanto, Louis y Bob, en la cabina de conducción, comentan el estado del clima.
+
+—Si esto continúa así, podríamos tener que detener el tren —advierte Bob, mientras observa las nubes densas en el horizonte.
+
+Un silencio espeso lo acompaña, roto abruptamente por un grito que sacude los vagones.
+
+Los pasajeros se movilizan, alarmados. En un camarote intermedio yace el cuerpo del prestamista. La escena es caótica: hay sangre, el cuerpo presenta múltiples heridas, y el rostro del hombre está congelado en una mueca de dolor y terror.
+
+—¡Dios mío! —exclama María—. ¡Fue asesinado!
+
+Poirot, sin alterarse, comienza su trabajo.
+
+—Mes amis… parece que nuestras vacaciones deberán esperar.
+
+Martes por la tarde y noche
+El compartimiento es clausurado. María y Robin realizan un análisis preliminar. Las heridas son desiguales, como hechas con torpeza, sin la precisión de un asesino experimentado. La escena, sin embargo, está alterada: huellas, un vaso caído, una silla desplazada.
+
+Juan Carlos, el excomandante, confiesa haber visto una silueta encapuchada en el pasillo.
+
+—No logré ver el rostro, solo... una sombra —dice, claramente afectado.
+
+Louis afirma no haber notado nada extraño, pero su nerviosismo lo traiciona. Bob permanece en silencio, lo que incrementa las sospechas.
+
+Anne observa desde un rincón, absorta, casi como si ya supiera el final de la historia.
+
+Miércoles
+Las entrevistas continúan. Poirot interroga a Paco Fiestas, quien confiesa haber tenido vínculos antiguos con el país natal del prestamista.
+
+—Nadiekistán es tierra de secretos. Algunos regresan cuando uno menos los espera —comenta con una sonrisa gélida.
+
+María halla conexiones indirectas entre la víctima y casi todos los pasajeros. Robin, revisando registros, descubre algo inquietante: el prestamista había investigado a Louis y Bob. También había solicitado copias de viejos documentos sobre Paco y Juan Carlos.
+
+—¿Qué pretendía hacer con esa información? —pregunta Robin en voz alta.
+
+La tormenta arrecia y el tren se detiene en medio de la nada. María lo resume con frialdad:
+
+—Nadie entra ni sale. El culpable está entre nosotros.
+
+Bob, presionado, admite haber conocido al prestamista. Su mejor amigo perdió todo por culpa de sus fraudes. Pero insiste, firme:
+
+—No lo maté. Lo vi... después.
+
+Anne, interrogada más tarde, confiesa que su editor había sido víctima del mismo hombre.
+
+—Jamás hablé con él directamente. Pero conocía bien su reputación —dice, sin apartar la mirada.
+
+María y Poirot comienzan a entrever una posibilidad: demasiadas personas tenían un motivo… y ninguna coartada clara.
+
+Jueves
+Poirot se encierra durante horas con sus notas. María repasa informes, Robin sigue buscando inconsistencias. Al revisar el lugar del crimen una vez más, Robin descubre algo extraño: una mancha de sangre fuera de lugar, en una esquina donde no debería haber alcanzado… como si el cuerpo se hubiera movido después de muerto.
+
+También hay un rastro mínimo de vómito junto al lavamanos del camarote. Somníferos. Restos de alcohol. ¿Un cóctel mortal, accidental?
+
+Pero eso no cuadra con las heridas... ¿o sí?
+
+La escena es ambigua. Poirot lo sabe. María también.
+
+Cuando cae la noche, Poirot convoca a los pasajeros al vagón principal.
+
+—Damas y caballeros —dice con voz firme—, este hombre no era inocente. Había destruido muchas vidas. Todos aquí tenían algo que ocultar… o que vengar.
+
+Hace una pausa. Los rostros son máscaras de tensión.
+
+—Lo que sucedió… puede interpretarse de muchas formas. Quizá fue una ejecución. Quizá, un accidente muy conveniente. Quizá… algo entre ambos.
+
+María interviene.
+
+—Hemos hallado múltiples huellas. Señales de alteración en la escena. Nadie tiene una coartada sólida. Pero tampoco hay una prueba concluyente.
+
+Poirot cierra la declaración con una mirada melancólica.
+
+—Solo nos queda decidir qué historia contar… y cuál guardar en la nieve.
+
+El tren sigue detenido. Afuera, la tormenta se disipa lentamente, como si diera paso a una verdad que nunca será completamente revelada.
 
 
