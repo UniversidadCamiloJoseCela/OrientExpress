@@ -21,11 +21,10 @@ public class CarriageBuilder {
     /**
      * Agrega una puerta externa en coordenadas (fila, columna) y actualiza el layout.
      */
-    public CarriageBuilder addDoor(int row, int col) {
+    public void addDoor(int row, int col) {
         Door door = new Door(row, col);
         doors.add(door);
         layout.cellAt(row, col).setType(CellType.DOOR); // Para imprimir
-        return this;
     }
 
     /**

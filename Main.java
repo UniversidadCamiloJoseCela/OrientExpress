@@ -226,11 +226,15 @@ public static void main (String[] argumentos) throws Exception {
     // Añadimos una pista en BEDROOM (índice 2)
     Carriage bedroom = train.get(2);
     bedroom.getLayout().cellAt(0,0).setItem(new Clue("12","adasda"));
+    bedroom.getLayout().cellAt(1,2).setNpc(
+            new Criminologist("Flor", 1,true,"HGUAD", "d")
+    );
+
 
     System.out.println("Usa W/A/S/D para moverte, E para interactuar, Q para salir.");
     while (true) {
         Carriage current = train.get(player.getCurrentCarriage());
-        System.out.println("Vagón: " + current.getType());
+        System.out.println(STR."Vagón: \{current.getType()}");
         current.render(player);
         System.out.print("> ");
         String cmd = sc.nextLine().toUpperCase();
@@ -242,11 +246,18 @@ public static void main (String[] argumentos) throws Exception {
             case "S": newR++; break;
             case "A": newC--; break;
             case "D": newC++; break;
+            case "P": {
+                System.out.println("Pistas encontradas:");
+                for (Clue c : player.getClues()) {
+                    System.out.println(STR."- \{c.getDescription()}");
+                }
+                continue;
+            }
             case "E": {
                 // interactuar pista obligatorio
                 var cell = current.getLayout().cellAt(player.getRow(), player.getCol());
-                if (cell.getItem()) {
-                    InteractionResult res = cell.getItems().interact(player);
+                if (cell.isItem()) {
+                    InteractionResult res = cell.getItem().interact(player);
                     System.out.println(res.message());
                     cell.setItem(null);
                 } else {
@@ -257,17 +268,12 @@ public static void main (String[] argumentos) throws Exception {
                         int dest = doorMap.get(key);
                         player.moveToCarriage(dest);
                         // posiciona al otro lado de la puerta
-                        System.out.println(STR."ANTES\{player.getRow()} \{player.getCol()}");
                         player.setRow(1);
                         player.setCol((player.getCol() == 0) ? 6 : 0);
-                        System.out.println(STR."DESPUES\{player.getRow()} \{player.getCol()}");
                         System.out.println(STR."Te mueves al vagón \{train.get(dest).getType()}");
 
-                    }else{
-                        System.out.println("No hay door");
                     }
                 }
-                System.out.print("QUE PASA ");
                 continue;
             }
         }
@@ -277,8 +283,8 @@ public static void main (String[] argumentos) throws Exception {
             player.setCol(newC);
         }
     }
-    sc.close();
-    System.out.println("¡Juego terminado!");
+        sc.close();
+        System.out.println("¡Juego terminado!");
 
         }
 

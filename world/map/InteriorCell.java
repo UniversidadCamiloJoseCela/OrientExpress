@@ -36,15 +36,15 @@ public class InteriorCell {
         this.item = item;
     }
 
-    public boolean getItem() {
+    public boolean isItem() {
         return this.item != null;
     }
 
-    public Interactable getItems() {
+    public Interactable getItem() {
         return item;
     }
 
-    public Person getNpcs() {
+    public Person getNpc() {
         return npcs;
     }
 }

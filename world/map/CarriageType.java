@@ -10,6 +10,7 @@ public enum CarriageType {
     COAL(createKitchenMatrix()),
     BEDROOM(createSleeperMatrix());
 
+
     private final CellType[][] matrix;
 
     CarriageType(CellType[][] matrix) {

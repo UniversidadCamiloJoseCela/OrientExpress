@@ -1,7 +1,7 @@
 package world.map;
 
 
-import characters.Person;
+import characters.*;
 import world.item.Door;
 
 import java.util.Collections;
@@ -42,31 +42,41 @@ public class Carriage {
         return type == CellType.FLOOR || type == CellType.DOOR;
     }
 
-
-    /**
-     * Renderiza en consola el interior con emojis:
-     * - 💡 si hay pista
-     * - 👤 si hay NPC (y no hay pista)
-     * - 🟩 FLOOR
-     * - 🍽️ TABLE
-     * - 💺 CHAIR
-     * - 🧱 COUNTER
-     * - 🚪 DOOR
-     */
-
     public void render(Person player) {
         int pr = player.getRow();
         int pc = player.getCol();
         for (int r = 0; r < CarriageLayout.ROWS; r++) {
             for (int c = 0; c < CarriageLayout.COLS; c++) {
                 if (r == pr && c == pc) {
-                    System.out.print("👤");
+                    System.out.print("🔍");
                 } else {
                     InteriorCell cell = layout.cellAt(r, c);
                     String emoji;
-                    if (cell.getItem()) {
+                    if (cell.isItem()) {
                         emoji = "💡";
-                    } else {
+                    } else if (cell.isNpc()) {
+                        if (cell.getNpc() instanceof Detective) {
+                            emoji = "🔍";  // Detective
+                        } else if (cell.getNpc() instanceof DetectiveAssistant) {
+                            emoji = "👦";  // DetectiveAssistant
+                        } else if (cell.getNpc() instanceof LocomotiveDriver) {
+                            emoji = "👲";  // LocomotiveDriver
+                        } else if (cell.getNpc() instanceof TrainCoalman) {
+                            emoji = "👷";  // TrainCoalman
+                        } else if (cell.getNpc() instanceof Comander) {
+                            emoji = "👮";  // Comander
+                        } else if (cell.getNpc() instanceof Mayor) {
+                            emoji = "👴";  // Mayor
+                        } else if (cell.getNpc() instanceof Criminologist) {
+                            emoji = "👩";  // Criminologist
+                        } else if (cell.getNpc() instanceof Novelist) {
+                            emoji = "👵";  // Novelist
+                        } else {
+                            emoji = "👤";  // Otro NPC
+                        }
+
+                    }
+                    else {
                         int finalR = r;
                         int finalC = c;
                         if (doors.stream().anyMatch(d -> d.x() == finalR && d.y() == finalC)) {

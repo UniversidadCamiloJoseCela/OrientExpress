@@ -28,8 +28,7 @@ public class Clue implements Interactable {
     @Override
     public InteractionResult interact(Detective player) {
         player.addClue(this);
-        String msg = String.format("NOT FOUND", getDescription());
-        return new InteractionResult(msg, true);
+        return new InteractionResult(this.descriptionKey, true);
     }
 
     @Override
