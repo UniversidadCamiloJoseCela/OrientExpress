@@ -1,4 +1,5 @@
 # historia y descripcion vagones, hasta el jueves y dependiendo de la cantidad de pistas recojidas sera un final u otro. un dialogo tocho por dia en el que halla multiopctiones de pistas (cada opcion da un dialogo distinto para luego volver a dialogo automatico)
+VERSION 1
 Nos encontramos a bordo de un tren con destino a unas merecidas vacaciones, lejos del bullicio urbano y rodeados por paisajes de ensueño. Sin embargo, algo en el ambiente sugiere que la tranquilidad será efímera. ¿Te preguntas por qué? Permíteme relatar los acontecimientos desde el inicio para que comprendas la magnitud de la situación que enfrentamos.
 
 Tras una sucesión de encargos exitosos y lucrativos, el renombrado detective belga Hércules Poirot emprende un viaje de descanso en uno de los trenes más lujosos de la península. El convoy, dotado de las más modernas comodidades, ostenta una impecable trayectoria libre de incidentes, lo que refuerza su reputación como medio de transporte exclusivo y seguro.
@@ -104,4 +105,94 @@ Silencio absoluto inunda el vagón. Afuera, la nieve sigue cayendo.
 —Resta decidir qué verdad será comunicada… y cuál sepultada junto al cuerpo, bajo este manto blanco.
 
 FIN DEL JUEVES POR LA NOCHE
+
+VERSION 2
+Nos encontramos a bordo de un tren con destino a unas merecidas vacaciones, lejos del bullicio urbano y rodeados por paisajes de ensueño. Sin embargo, algo en el ambiente sugiere que la tranquilidad será efímera. ¿Te preguntas por qué? Permíteme relatar los acontecimientos desde el inicio para que comprendas la magnitud de la situación que enfrentamos.
+
+Tras una sucesión de encargos exitosos y lucrativos, el renombrado detective belga Hércules Poirot emprende un viaje de descanso en uno de los trenes más lujosos de la península. El convoy, dotado de las más modernas comodidades, ostenta una impecable trayectoria libre de incidentes, lo que refuerza su reputación como medio de transporte exclusivo y seguro.
+
+Mientras Poirot aborda el tren, su aguda capacidad de observación comienza a registrar detalles aparentemente triviales, pero potencialmente reveladores.
+
+—Parece que viajaremos con personajes particularmente altivos —murmura, observando con detenimiento a un hombre de porte soberbio.
+
+Ese individuo no es otro que Paco Fiestas, alcalde de VillaNadie. Su atuendo impoluto y su lenguaje corporal denotan una personalidad narcisista y manipuladora. Poirot no formula juicio explícito, pero archiva sus impresiones con cautela profesional.
+
+—Ese caballero podría traer complicaciones —continúa, enfocándose en un anciano condecorado por méritos militares.
+
+Se trata del comandante retirado Juan Carlos, cuya historia personal está marcada por proezas bélicas y episodios de desorden emocional, probablemente vinculados a su prolongada exposición al conflicto armado.
+
+Lunes: Inicio del trayecto
+
+Poirot se acomoda en su compartimiento mientras el tren arranca. Al anochecer, los pasajeros comienzan a socializar en el vagón comedor. Robin Retos, un joven con inteligencia sobresaliente, inicia conversación con María, una criminóloga de prestigio internacional. Su charla gira en torno a la resolución de crímenes y la lógica forense.
+
+—¿Has enfrentado un caso en el que todas las pistas se extinguieran sin solución? —pregunta Robin.
+
+—Siempre hay una hebra que tira de la verdad —responde María—. La clave está en la perseverancia.
+
+Por otro lado, Paco entabla una conversación con Louis, el maquinista. Mientras el político alardea de sus logros, Louis escucha con desgana, abrumado por las preocupaciones personales relativas a su hija enferma.
+
+En un rincón más discreto, Anne, novelista premiada, observa y toma notas mentales. La escena parece inspirar una posible trama.
+
+El comandante Juan Carlos se aproxima a Bob, el fogonero, mostrando una mezcla de autoridad y curiosidad.
+
+—Tienes el perfil de los hombres que conocí en campaña: herméticos, solitarios. ¿De dónde provienes, Bob?
+
+—De muchos lugares. No tengo historia que contar —responde sin levantar la vista.
+
+La noche avanza, y los pasajeros se retiran a sus camarotes, inconscientes del giro drástico que tomará su travesía.(el narrador no puede dar este tipo de datos)
+
+Martes por la tarde y noche
+
+La víctima es un prestamista de reputación cuestionable. El cuerpo es hallado en su camarote, desplomado sobre su escritorio, con un rostro contraído por una mueca extraña. A su lado, una taza de porcelana rota. Poirot, con ojo experto, nota que no hay signos visibles de lucha, pero sí un ligero tinte azulado en los labios del difunto.
+
+—Parece que la muerte fue silenciosa… y muy precisa —murmura Poirot.
+
+María y Robin realizan un análisis preliminar. Encuentran restos de una sustancia sospechosa en la taza rota. La escena apunta a envenenamiento, probablemente disuelto en el té o café.
+
+El comandante Juan Carlos, visiblemente afectado, declara haber visto a una figura encapuchada caminando por el pasillo momentos antes de que se diera la alarma.
+
+—No logré distinguir su rostro —confiesa, con cierto temblor.
+
+Louis, el maquinista, dice no haber notado nada extraño, aunque admite haberse ausentado brevemente del vagón de control. Bob permanece callado, lo que incrementa las sospechas. Anne, atenta observadora, teoriza que los antecedentes oscuros de muchos pasajeros podrían entrelazarse con la víctima.
+
+Miércoles
+
+Poirot interroga a Paco Fiestas, quien sugiere que tuvo antiguos vínculos con el país de origen del prestamista: Nadiekistán.
+
+—Una vez compartimos mesa, y ahora compartimos enemigos —declara con sonrisa enigmática.
+
+María descubre conexiones indirectas entre la víctima y varios pasajeros: demandas abiertas, negocios turbios, chantajes. Robin, al investigar los registros del tren, encuentra que el prestamista había estado solicitando información confidencial sobre Louis y Bob, lo cual sugiere intenciones de extorsión.
+
+Los datos apuntan a que el veneno fue suministrado durante la cena del lunes o el desayuno del martes. Pero no todos comieron lo mismo.
+
+Bob, acorralado, admite que su único amigo fue víctima del prestamista, pero niega cualquier implicación. Sin embargo, admite haber notado que alguien vertía algo en una tetera, aunque no vio el rostro.
+
+Jueves
+
+Poirot entrevista a Anne. Ella admite haber escuchado rumores sobre el prestamista por medio de su editor, quien fue arruinado tras ser extorsionado por el mismo hombre.
+
+—Nunca tuve contacto directo, pero sabía de qué era capaz —afirma—. Muchos le deseaban el mal.
+
+María comienza a esbozar una teoría: el crimen fue colectivo, ejecutado mediante un plan compartido. Cada uno aportó algo: información, distracción, acceso al vagón de cocina. Robin, tras un minucioso análisis de residuos y huellas, concluye que más de una persona manipuló la tetera que luego fue servida exclusivamente al prestamista.
+
+La tormenta de nieve obliga a detener el tren.
+
+—Nadie entra ni sale —afirma María—. El asesino sigue a bordo.
+
+Jueves por la noche
+
+Poirot convoca a todos en el vagón principal.
+
+—Damas y caballeros —comienza—, he llegado a dos conclusiones. La primera: este crimen fue ejecutado por una mente astuta. La segunda… fue perpetrado por todos ustedes.
+
+Los rostros revelan una mezcla de shock, resignación y un dejo de alivio.
+
+—Cada uno tenía un motivo. Este hombre destruyó vidas. Y ustedes, de algún modo, buscaron justicia o venganza. Algunos sabían del plan; otros, simplemente no hicieron nada para impedirlo.
+
+Silencio absoluto. Afuera, la nieve continúa cayendo.
+
+—Resta decidir qué verdad será comunicada… y cuál será sepultada junto al veneno, bajo este manto blanco.
+
+VERSION 3
+
 
