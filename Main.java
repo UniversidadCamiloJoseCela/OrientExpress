@@ -308,17 +308,16 @@ public static void main (String[] argumentos) throws Exception {
             System.out.println(STR."Vagón: \{current.getType()}");
             current.render(player);
             System.out.print("> ");
-            sc.next().toUpperCase(); //flushData
-            String cmd = sc.nextLine().toUpperCase();
-            if (cmd.equals("Q")) break;
+            char cmd = Character.toUpperCase(sc.next().charAt(0));
+            if (cmd == 'Q') break;
             int newR = player.getRow();
             int newC = player.getCol();
             switch (cmd) {
-                case "W": newR--; break;
-                case "S": newR++; break;
-                case "A": newC--; break;
-                case "D": newC++; break;
-                case "H": {
+                case 'W': newR--; break;
+                case 'S': newR++; break;
+                case 'A': newC--; break;
+                case 'D': newC++; break;
+                case 'H': {
                     dm.printHistory(
                             bundleMsg.getString("scene"),
                             bundleMsg.getString("character"),
@@ -326,14 +325,14 @@ public static void main (String[] argumentos) throws Exception {
                     );
                     continue;
                 }
-                case "P": {
+                case 'P': {
                     System.out.println("Pistas encontradas:");
                     for (Clue c : player.getClues()) {
                         System.out.println(STR."- \{c.getDescription()}");
                     }
                     continue;
                 }
-                case "E": {
+                case 'E': {
                     // interactuar pista obligatorio
                     var cell = current.getLayout().cellAt(player.getRow(), player.getCol());
                     if (cell.isItem()) {
