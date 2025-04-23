@@ -2,6 +2,8 @@ import characters.*;
 import dialog.DialogueLine;
 import dialog.DialogueManager;
 import dialog.DialogueScene;
+import dialog.Scene;
+import world.MapWindow;
 import world.interactable.InteractionResult;
 import world.item.Clue;
 import world.item.Door;
@@ -22,8 +24,9 @@ public static void main (String[] argumentos) throws Exception {
         ResourceBundle bundleDialog = ResourceBundle.getBundle("i18n.dialogues", locale); // Dialogo del juego
 
 
-        DialogueManager dm = new DialogueManager();
 
+
+        Person narrador = new Person("Narrador", 0, true, "Es el narrador", "Strong");
 
         Detective detective = new Detective(
                 bundleMsg.getString("detective.name"),
@@ -90,159 +93,21 @@ public static void main (String[] argumentos) throws Exception {
                 bundleMsg.getString("novelist.traits")
         );
 
-        Person narrador = new Person("Narrador", 0, true, "Es el narrador", "Strong");
-        List<DialogueLine> scene1 = List.of(
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene1.line1.text"),
-                        0
-                ),
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene1.line2.text"),
-                        0
-                ),
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene1.line3.text"),
-                        0
-                ),
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene1.line4.text"),
-                        0
-                ),
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene1.line5.text"),
-                        0
-                )
-        );
 
-        // MAPA ENTRA EN EL TREN - ENTREGAR TICKER
+        DialogueManager dm = new DialogueManager();
 
-        List<DialogueLine> scene2 = List.of(
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene2.line1.text"),
-                        0
-                ),
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene2.line2.text"),
-                        0
-                ),
-                new DialogueLine(
-                        detective,
-                        bundleDialog.getString("scene2.line3.text"),
-                        0
-                ),
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene2.line4.text"),
-                        0
-                ),
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene2.line5.text"),
-                        0
-                ),
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene2.line6.text"),
-                        0
-                ),
-                new DialogueLine(
-                        detective,
-                        bundleDialog.getString("scene2.line7.text"),
-                        0
-                ),
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene2.line8.text"),
-                        0
-                )
-
-        );
-
-        // LUNES
-
-        List<DialogueLine> scene3 = List.of(
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene3.line1.text"),
-                        0
-                ),
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene3.line2.text"),
-                        0
-                ),
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene3.line3.text"),
-                        0
-                ),
-                new DialogueLine(
-                        detectiveAssistant,
-                        bundleDialog.getString("scene3.line4.text"),
-                        0
-                ),
-                new DialogueLine(
-                        criminologist,
-                        bundleDialog.getString("scene3.line5.text"),
-                        0
-                ),
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene3.line6.text"),
-                        0
-                ),
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene3.line7.text"),
-                        0
-                ),
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene3.line8.text"),
-                        0
-                ),
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene3.line9.text"),
-                        0
-                ),
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene3.line10.text"),
-                        0
-                ),
-                new DialogueLine(
-                        comander,
-                        bundleDialog.getString("scene3.line11.text"),
-                        0
-                ),
-                new DialogueLine(
-                        trainCoalman,
-                        bundleDialog.getString("scene3.line12.text"),
-                        0
-                ),
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene3.line13.text"),
-                        0
-                ),
-                new DialogueLine(
-                        narrador,
-                        bundleDialog.getString("scene3.line14.text"),
-                        0
-                )
-        );
-
-        dm.loadScene(new DialogueScene(scene3));
+        // Carga y ejecuta la escena 1
+        dm.loadScene(Scene.scene1(bundleDialog, narrador, detective));
         dm.start();
 
+        MapWindow.showMapWithDialogue(Scene.scene1(bundleDialog, narrador, detective));
+
+        // Carga y ejecuta la escena 2
+        dm.loadScene(Scene.scene2(bundleDialog, narrador, detective));
+        dm.start();
+
+        dm.loadScene(Scene.scene3(bundleDialog, narrador, detectiveAssistant, criminologist, comander));
+        dm.start();
 
         while (true) {
             System.out.println("\n--- MENÚ DE DIÁLOGOS ---");
@@ -252,12 +117,12 @@ public static void main (String[] argumentos) throws Exception {
                 System.out.println("Saliendo del menú de diálogos.");
                 break;
             }
-            List<DialogueLine> nextScene = switch (op) {
-                case "a" -> scene1;
-                case "b" -> scene1;
-                default  -> scene1;
+            DialogueScene nextScene = switch (op) {
+                case "a" -> Scene.scene1(bundleDialog, narrador, detective);
+                case "b" -> Scene.scene2(bundleDialog, narrador, detective);
+                default -> throw new IllegalStateException(STR."ERROR: \{op}");
             };
-            dm.loadScene(new DialogueScene(nextScene));
+            dm.loadScene(nextScene);
             dm.start();
         }
 
