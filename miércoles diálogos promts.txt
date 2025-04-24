@@ -1,0 +1,11 @@
+miércoles diálogos promts
+Hércules Poirot, diálogos con Louis(conductor) y Bob(el del carbón)
+
+Dialogo de Louis con Poirot:
+--relación de Louis, Juan Carlos y Maria:"Pidió dinero a un prestamista para su hija enferma.\n" + 
+                "Trabaja todo el día para darle a su hija la vida que el nunca tuvo."Dicho prestamista fue mas adelante encontrado culpable por tramites ilegales si sus clientes no llegaban a devolver el dinero con intereses. La unión con Juan Carlos es "Durante 3 años, Juan Carlos, estuvo en Las vegas como un ludópata empedernido,\n" + "en donde ocurrió un asesinato en el casino en el que se encontraba. En el casino, Juan Carlos, conoce a maria por el caso en el que la persona asesinada es el prestamista de Louis"
+-Tema principal de la conversación: el prestamista 
+-Generación de opciones(preguntas con una pista incluida):
+	a)su trabajo, si no tenia otras opciones (accidente) 	b)el pasado del prestamista (historia normal)	c)
+
+Dialogo de Bob:

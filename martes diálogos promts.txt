@@ -1,0 +1,19 @@
+martes diálogos promts
+Hércules Poirot, diálogos con juan Carlos y paco fiestas.
+
+Dialogo de Juan Carlos con Poirot: ocurre por la mañana en el desayuno de Juan Carlos(Poirot ya termino esta con su café)
+--relación de Juan Carlos con Paco Fiestas(con grandes hazañas en Nadiekistan  hace 50 años, que duro por 5 años.\n" +
+                " allí rescato de un metro a un niño abandonado por su madre, el cual se apiado del niño y lo llevo a un orfanato,\n desde" +
+                "entonces no supo nada mas de el)
+-Tema principal de la conversación: la guerra de Nadiekistan(pregunta Poirot por curiosidad)
+-Generación de opciones(preguntas con una pista incluida):
+	a)tácticas de tortura, entre ellas "veneno"	b)formación física, tácticas de asesinato y inmovilización(accidente) 	c)desactivación de explosivos(historia normal)
+
+//conversación automática hasta merienda
+
+Dialogo Paco Fiestas y Poirot: ocurre pasado la comida en la merienda, Poirot invita a Paco
+--cosas en común con Poirot: también estuvo en Nadiekistan resolviendo un caso hace 9 años con la ayuda de un alcalde(Paco Fiestas)
+
+-Tema principal de la conversación: su trabajo como alcalde y su experiencia en la guerra (Nadiekistan)
+-Generación de opciones(preguntas con una pista incluida):
+	a)¿Le gustan las novelas de misterio, o prefiere los misterios de la vida real que a veces superan a la ficción?(Poirot asesino)	b)¿Colecciona algo?, objetos antiguos(favorito una daga templaria),(historia normal)	c)¿Alguna vez ha tenido un conflicto moral? ¿O eso no entra en su agenda?(accidente)
