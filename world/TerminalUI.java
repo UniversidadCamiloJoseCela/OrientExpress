@@ -91,7 +91,7 @@ public class TerminalUI extends JFrame {
      */
     public static void launchWithUI(String[] args, Runnable gameMain) throws IOException {
         // Crea la ventana gráfica que intercepta I/O
-        new TerminalUI("Consola Gráfica de Juego", 800, 600);
+        new TerminalUI("Orient Express", 800, 600);
         // Ejecuta tu lógica principal en otro hilo
         new Thread(gameMain).start();
     }

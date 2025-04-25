@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class Scene {
-    public static DialogueScene scene1(ResourceBundle bundleDialog, Person narrador, Detective detective) {
+    public static DialogueScene scene1(ResourceBundle bundleDialog, Person narrador) {
         List<DialogueLine> lines = List.of(
                 new DialogueLine(narrador, bundleDialog.getString("scene1.line1.text"), 0),
                 new DialogueLine(narrador, bundleDialog.getString("scene1.line2.text"), 0),
@@ -17,9 +17,9 @@ public class Scene {
         return new DialogueScene(lines);
     }
 
-    public static DialogueScene scene2(ResourceBundle bundleDialog, Person narrador, Detective detective) {
+    public static DialogueScene scene2(ResourceBundle bundleDialog, Person narrador, Detective detective, LocomotiveDriver locomotiveDriver) {
         List<DialogueLine> lines = List.of(
-                new DialogueLine(narrador, bundleDialog.getString("scene2.line1.text"), 0),
+                new DialogueLine(locomotiveDriver, bundleDialog.getString("scene2.line1.text"), 0),
                 new DialogueLine(narrador, bundleDialog.getString("scene2.line2.text"), 0),
                 new DialogueLine(detective, bundleDialog.getString("scene2.line3.text"), 0),
                 new DialogueLine(narrador, bundleDialog.getString("scene2.line4.text"), 0),
@@ -36,6 +36,7 @@ public class Scene {
                                        DetectiveAssistant assistant,
                                        Criminologist criminologist,
                                        Comander comander) {
+
         List<DialogueLine> lines = List.of(
                 new DialogueLine(narrador, bundleDialog.getString("scene3.line1.text"), 0),
                 new DialogueLine(narrador, bundleDialog.getString("scene3.line2.text"), 0),
@@ -53,6 +54,7 @@ public class Scene {
                 new DialogueLine(narrador, bundleDialog.getString("scene3.line14.text"), 0)
         );
         return new DialogueScene(lines);
+
     }
 
 }

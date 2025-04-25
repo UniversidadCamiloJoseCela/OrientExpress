@@ -48,7 +48,7 @@ public class Carriage {
         for (int r = 0; r < CarriageLayout.ROWS; r++) {
             for (int c = 0; c < CarriageLayout.COLS; c++) {
                 if (r == pr && c == pc) {
-                    System.out.print("🔍");
+                    System.out.print("🕵");
                 } else {
                     InteriorCell cell = layout.cellAt(r, c);
                     String emoji;
@@ -56,7 +56,7 @@ public class Carriage {
                         emoji = "💡";
                     } else if (cell.isNpc()) {
                         if (cell.getNpc() instanceof Detective) {
-                            emoji = "🔍";  // Detective
+                            emoji = "🔍";  // Detective FOR BOT ONLY OTHER FINALS DOENST FIND
                         } else if (cell.getNpc() instanceof DetectiveAssistant) {
                             emoji = "👦";  // DetectiveAssistant
                         } else if (cell.getNpc() instanceof LocomotiveDriver) {

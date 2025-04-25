@@ -17,14 +17,6 @@ public class Person {
     private String adjetives;
     private String emoji;
 
-    public String getEmoji() {
-        return emoji;
-    }
-
-    public void setEmoji(String emoji) {
-        this.emoji = emoji;
-    }
-
     //Constructor
     public Person (String name, int age, boolean gender, String description, String adjetives){
         this.name = name;
@@ -34,10 +26,9 @@ public class Person {
         this.adjetives = adjetives;
     }
 
-    //
-
+    // POSICION INICIAL
     private int currentCarriage  = 0;
-    private int row = 0, col = 1; // posición inicial
+    private int row = 0, col = 0;
 
     public int getCurrentCarriage() { return currentCarriage; }
     public int getRow() { return row; }
@@ -47,17 +38,7 @@ public class Person {
         this.currentCarriage = index;
     }
 
-    public void moveUp()    { if (row > 0) row--; }
-    public void moveDown()  { if (row < CarriageLayout.ROWS - 1) row++; }
-    public void moveLeft()  { if (col > 0) col--; }
-    public void moveRight() { if (col < CarriageLayout.COLS - 1) col++; }
-
-
-
-
     // Setter and getters
-
-
 
     public String getName() {
         return name;
@@ -65,6 +46,14 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmoji() {
+        return emoji;
+    }
+
+    public void setEmoji(String emoji) {
+        this.emoji = emoji;
     }
 
     public int getAge() {
