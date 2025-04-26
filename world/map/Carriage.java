@@ -1,6 +1,5 @@
 package world.map;
 
-
 import characters.*;
 import world.item.Door;
 
@@ -49,51 +48,59 @@ public class Carriage {
             for (int c = 0; c < CarriageLayout.COLS; c++) {
                 if (r == pr && c == pc) {
                     System.out.print("🕵");
-                } else {
-                    InteriorCell cell = layout.cellAt(r, c);
-                    String emoji;
-                    if (cell.isItem()) {
-                        emoji = "💡";
-                    } else if (cell.isNpc()) {
-                        if (cell.getNpc() instanceof Detective) {
-                            emoji = "🔍";  // Detective FOR BOT ONLY OTHER FINALS DOENST FIND
-                        } else if (cell.getNpc() instanceof DetectiveAssistant) {
-                            emoji = "👦";  // DetectiveAssistant
-                        } else if (cell.getNpc() instanceof LocomotiveDriver) {
-                            emoji = "👲";  // LocomotiveDriver
-                        } else if (cell.getNpc() instanceof TrainCoalman) {
-                            emoji = "👷";  // TrainCoalman
-                        } else if (cell.getNpc() instanceof Comander) {
-                            emoji = "👮";  // Comander
-                        } else if (cell.getNpc() instanceof Mayor) {
-                            emoji = "👴";  // Mayor
-                        } else if (cell.getNpc() instanceof Criminologist) {
-                            emoji = "👩";  // Criminologist
-                        } else if (cell.getNpc() instanceof Novelist) {
-                            emoji = "👵";  // Novelist
-                        } else {
-                            emoji = "👤";  // Otro NPC
-                        }
-
-                    }
-                    else {
-                        int finalR = r;
-                        int finalC = c;
-                        if (doors.stream().anyMatch(d -> d.x() == finalR && d.y() == finalC)) {
-                            emoji = "🚪";
-                        } else {
-                            switch (cell.getType()) {
-                                case FLOOR   -> emoji = "🟩";
-                                case TABLE   -> emoji = "🍽️";
-                                default      -> emoji = "❓";
-                            }
-                        }
-                    }
-                    System.out.print(emoji);
+                    continue;
                 }
+
+                InteriorCell cell = layout.cellAt(r, c);
+                String emoji;
+
+                if (cell.isItem()) {
+                    emoji = "💡";
+                } else if (cell.isNpc()) {
+                    if (cell.getNpc() instanceof Detective) {
+                        emoji = "🔍";
+                    } else if (cell.getNpc() instanceof DetectiveAssistant) {
+                        emoji = "👦";
+                    } else if (cell.getNpc() instanceof LocomotiveDriver) {
+                        emoji = "👲";
+                    } else if (cell.getNpc() instanceof TrainCoalman) {
+                        emoji = "👷";
+                    } else if (cell.getNpc() instanceof Comander) {
+                        emoji = "👮";
+                    } else if (cell.getNpc() instanceof Mayor) {
+                        emoji = "👴";
+                    } else if (cell.getNpc() instanceof Criminologist) {
+                        emoji = "👩";
+                    } else if (cell.getNpc() instanceof Novelist) {
+                        emoji = "👵";
+                    } else {
+                        emoji = "👤";
+                    }
+                } else {
+                    int finalR = r;
+                    int finalC = c;
+                    if (doors.stream().anyMatch(d -> d.x() == finalR && d.y() == finalC)) {
+                        emoji = "🚪";
+                    } else {
+                        // Mapa de emojis según el nuevo CellType
+                        switch (cell.getType()) {
+                            case FLOOR      -> emoji = "⬜";  // Blanco grande para el suelo
+                            case WINDOW     -> emoji = "⬛";  // Negro grande para la ventana
+                            case TABLE      -> emoji = "🍽️";
+                            case SEAT       -> emoji = "💺";
+                            case BED        -> emoji = "🛏️";
+                            case PANEL      -> emoji = "🎛️";
+                            case ARMCHAIR   -> emoji = "🛋️";
+                            case SINK       -> emoji = "🚰";
+                            case TOILET     -> emoji = "🚽";
+                            default         -> emoji = "❓";
+                        }
+                    }
+                }
+
+                System.out.print(emoji);
             }
             System.out.println();
         }
     }
-
 }

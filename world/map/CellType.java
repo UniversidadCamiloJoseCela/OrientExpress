@@ -5,11 +5,10 @@ public enum CellType {
     TABLE,
     DOOR,
     WINDOW,
+    SEAT,
     BED,
     PANEL,
     ARMCHAIR,
     SINK,
     TOILET
-
-
 }

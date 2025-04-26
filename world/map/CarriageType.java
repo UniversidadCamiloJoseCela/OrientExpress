@@ -6,15 +6,15 @@ import static world.map.CellType.*;
  * Tipos de vagón disponibles y sus layouts por defecto.
  */
 public enum CarriageType {
-    VIEWPOINT(createBathroomMatrix()),
-    BAGGAGE(createKitchenMatrix()),
-    DINNER(createBathroomMatrix()),
-    LOUNGE(createBathroomMatrix()),
-    BEDROOM(createBathroomMatrix()),
+    VIEWPOINT(createViewpointMatrix()),
+    BAGGAGE(createOpenMatrix()),
+    DINNER(createDiningMatrix()),
+    LOUNGE(createLoungeMatrix()),
+    BEDROOM(createSleeperMatrix()),
     BATHROOM(createBathroomMatrix()),
     KITCHEN(createKitchenMatrix()),
-    COUL(createKitchenMatrix()),
-    LOCOMOTIVE(createBathroomMatrix());
+    COULOIR(createCouloirMatrix()),
+    LOCOMOTIVE(createLocomotiveMatrix());
 
     private final CellType[][] matrix;
 
@@ -33,36 +33,84 @@ public enum CarriageType {
         return copy;
     }
 
-    private static CellType[][] createBathroomMatrix() {
-        return new CellType[][]{
+    private static CellType[][] createViewpointMatrix() {
+        // Vista panorámica: asientos junto a ventanas
+        return new CellType[][] {
+                {FLOOR, WINDOW, SEAT, SEAT, SEAT, WINDOW, FLOOR},
+                {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR},
+                {FLOOR, WINDOW, SEAT, SEAT, SEAT, WINDOW, FLOOR}
+        };
+    }
+
+    private static CellType[][] createOpenMatrix() {
+        // Espacio abierto (bodega o pasillo)
+        return new CellType[][] {
                 {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR},
                 {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR},
-                {FLOOR, FLOOR, FLOOR, FLOOR,  FLOOR, FLOOR, FLOOR}
+                {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR}
         };
     }
 
     private static CellType[][] createDiningMatrix() {
-        return new CellType[][]{
+        // Comedor: varias mesas
+        return new CellType[][] {
+                {FLOOR, TABLE, FLOOR, TABLE, FLOOR, TABLE, FLOOR},
                 {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR},
+                {FLOOR, TABLE, FLOOR, TABLE, FLOOR, TABLE, FLOOR}
+        };
+    }
+
+    private static CellType[][] createLoungeMatrix() {
+        // Salón: sillones y mesas bajas
+        return new CellType[][] {
+                {FLOOR, ARMCHAIR, FLOOR, TABLE, FLOOR, FLOOR, FLOOR},
                 {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR},
+                {FLOOR, ARMCHAIR, FLOOR, TABLE, FLOOR, ARMCHAIR, FLOOR}
+        };
+    }
+
+    private static CellType[][] createSleeperMatrix() {
+        // Camarote: literas
+        return new CellType[][] {
+                {FLOOR, BED, BED, BED, FLOOR, BED, FLOOR},
+                {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR},
+                {FLOOR, BED, BED, BED, FLOOR, BED, FLOOR}
+        };
+    }
+
+    private static CellType[][] createBathroomMatrix() {
+        // Baño: lavabo, inodoro y puertas interiores
+        return new CellType[][] {
+                {FLOOR, SINK,  FLOOR, TOILET, FLOOR, SINK,  FLOOR},
+                {FLOOR, DOOR,  FLOOR, DOOR,   FLOOR, DOOR,   FLOOR},
                 {FLOOR, FLOOR, FLOOR, FLOOR,  FLOOR, FLOOR, FLOOR}
         };
     }
 
     private static CellType[][] createKitchenMatrix() {
-        return new CellType[][]{
+        // Cocina: mesa de preparación y panel de control (como placa de cocina)
+        return new CellType[][] {
+                {FLOOR, FLOOR, FLOOR, TABLE,  FLOOR, FLOOR, FLOOR},
+                {FLOOR, FLOOR, FLOOR, FLOOR,  FLOOR, FLOOR, FLOOR},
+                {FLOOR, FLOOR, FLOOR, PANEL,  FLOOR, FLOOR, FLOOR}
+        };
+    }
+
+    private static CellType[][] createCouloirMatrix() {
+        // Pasillo interior con puertas
+        return new CellType[][] {
                 {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR},
-                {FLOOR, FLOOR, FLOOR, TABLE, FLOOR, FLOOR, FLOOR},
+                {FLOOR, DOOR,  FLOOR, DOOR,  FLOOR, DOOR,  FLOOR},
                 {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR}
         };
     }
 
-    private static CellType[][] createSleeperMatrix() {
-        return new CellType[][]{
-                {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR},
-                {FLOOR, TABLE, TABLE, TABLE, FLOOR, TABLE, FLOOR},
-                {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR}
+    private static CellType[][] createLocomotiveMatrix() {
+        // Locomotora: panel de mandos y puertas
+        return new CellType[][] {
+                {FLOOR, FLOOR, FLOOR, PANEL, FLOOR, FLOOR, FLOOR},
+                {FLOOR, DOOR,  FLOOR, FLOOR, FLOOR, DOOR,  FLOOR},
+                {FLOOR, FLOOR, FLOOR, PANEL, FLOOR, FLOOR, FLOOR}
         };
     }
 }
-
