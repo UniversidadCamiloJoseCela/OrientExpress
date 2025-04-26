@@ -134,7 +134,6 @@ public static void originalMain (String[] argumentos) throws Exception {
     int carriageIndex = detective.getCurrentCarriage();
     int dr = detective.getRow();
     int dc = detective.getCol();
-    Carriage.printTrainWithDetective(carriageIndex, dr, dc);
 
     // Introduccion al juego
     dm.loadScene(Scene.scene1(bundleDialog, narrador));
