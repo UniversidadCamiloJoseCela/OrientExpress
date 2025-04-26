@@ -34,11 +34,11 @@ public enum CarriageType {
     }
 
     private static CellType[][] createViewpointMatrix() {
-        // Vista panorámica: asientos junto a ventanas
+        // Vista panorámica: asientos (sin ventanas, todas son suelo)
         return new CellType[][] {
-                {FLOOR, WINDOW, SEAT, SEAT, SEAT, WINDOW, FLOOR},
+                {FLOOR, FLOOR, SEAT, SEAT, SEAT, FLOOR, FLOOR},
                 {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR},
-                {FLOOR, WINDOW, SEAT, SEAT, SEAT, WINDOW, FLOOR}
+                {FLOOR, FLOOR, SEAT, SEAT, SEAT, FLOOR, FLOOR}
         };
     }
 
@@ -63,8 +63,8 @@ public enum CarriageType {
     private static CellType[][] createLoungeMatrix() {
         // Salón: sillones y mesas bajas
         return new CellType[][] {
-                {FLOOR, ARMCHAIR, FLOOR, TABLE, FLOOR, FLOOR, FLOOR},
-                {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR},
+                {FLOOR, ARMCHAIR, FLOOR, TABLE, FLOOR, ARMCHAIR, FLOOR},
+                {FLOOR, FLOOR,     FLOOR, FLOOR, FLOOR, FLOOR,     FLOOR},
                 {FLOOR, ARMCHAIR, FLOOR, TABLE, FLOOR, ARMCHAIR, FLOOR}
         };
     }
@@ -88,10 +88,10 @@ public enum CarriageType {
     }
 
     private static CellType[][] createKitchenMatrix() {
-        // Cocina: mesa de preparación y panel de control (como placa de cocina)
+        // Cocina: mesa de preparación y panel de control
         return new CellType[][] {
                 {FLOOR, FLOOR, FLOOR, TABLE,  FLOOR, FLOOR, FLOOR},
-                {FLOOR, FLOOR, FLOOR, FLOOR,  FLOOR, FLOOR, FLOOR},
+                {FLOOR, FLOOR, FLOOR, PANEL,  FLOOR, FLOOR, FLOOR},
                 {FLOOR, FLOOR, FLOOR, PANEL,  FLOOR, FLOOR, FLOOR}
         };
     }
