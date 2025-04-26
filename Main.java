@@ -150,10 +150,6 @@ public static void originalMain (String[] argumentos) throws Exception {
     dm.loadScene(Scene.scene2(bundleDialog, narrador, detective, locomotiveDriver));
     dm.start();
 
-
-    // Lunes
-    System.out.println("LUNES: Inicio del trayecto");
-
     dm.loadScene(Scene.scene3(bundleDialog, narrador, detectiveAssistant, trainCoalman, criminologist, comander));
     dm.start();
 
@@ -210,9 +206,6 @@ private static String optionMenu(ResourceBundle bundleMsg, Scanner sc, DialogueM
     do {
         System.out.print(bundleMsg.getString("dialogs.prompt"));
         op = sc.next().trim().toLowerCase();
-        if (!op.equals("a") && !op.equals("b")) {
-            System.out.println("Opción no válida. Por favor, introduce 'a' o 'b'.");
-        }
     } while (!op.equals("a") && !op.equals("b"));
 
     //Asignar la siguiente escena según la opción válida
@@ -262,6 +255,8 @@ private static void interactionMovement(List<Carriage> train, Person narrador, D
 
                 dm.loadScene(Scene.scene11(bundleDialog, detective, narrador));
                 dm.start();
+
+                printMap(train, detective, 1);
 
                 System.out.println("\na: Maria");
                 System.out.println("b: Anne");
