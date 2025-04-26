@@ -204,7 +204,7 @@ private static String optionMenu(ResourceBundle bundleMsg, Scanner sc, DialogueM
     DialogueScene nextScene;
     //Repetir hasta que el usuario introduzca "a" o "b"
     do {
-        System.out.print(bundleMsg.getString("dialogs.prompt"));
+        System.out.println(bundleMsg.getString("dialogs.prompt"));
         op = sc.next().trim().toLowerCase();
     } while (!op.equals("a") && !op.equals("b"));
 
