@@ -90,7 +90,7 @@ public enum CarriageType {
     private static CellType[][] createKitchenMatrix() {
         // Cocina: mesa de preparación y panel de control
         return new CellType[][] {
-                {FLOOR, FLOOR, FLOOR, TABLE,  FLOOR, FLOOR, FLOOR},
+                {FLOOR, FLOOR, FLOOR, FLOOR,  FLOOR, FLOOR, FLOOR},
                 {FLOOR, FLOOR, FLOOR, PANEL,  FLOOR, FLOOR, FLOOR},
                 {FLOOR, FLOOR, FLOOR, PANEL,  FLOOR, FLOOR, FLOOR}
         };
