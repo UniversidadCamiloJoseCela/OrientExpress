@@ -1,8 +1,10 @@
 package characters;
 
-import map.Carriage;
+import world.item.Clue;
+import world.map.CarriageLayout;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Person {
@@ -15,14 +17,6 @@ public class Person {
     private String adjetives;
     private String emoji;
 
-    public String getEmoji() {
-        return emoji;
-    }
-
-    public void setEmoji(String emoji) {
-        this.emoji = emoji;
-    }
-
     //Constructor
     public Person (String name, int age, boolean gender, String description, String adjetives){
         this.name = name;
@@ -32,14 +26,39 @@ public class Person {
         this.adjetives = adjetives;
     }
 
+    // POSICION INICIAL
+    private int currentCarriage  = 0;
+    private int row = 0, col = 0;
+
+    public int getCurrentCarriage() { return currentCarriage; }
+
+    public void setCurrentCarriage(int currentCarriage) {
+        this.currentCarriage = currentCarriage;
+    }
+
+    public int getRow() { return row; }
+    public int getCol() { return col; }
+
+    public void moveToCarriage(int index) {
+        this.currentCarriage = index;
+    }
 
     // Setter and getters
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmoji() {
+        return emoji;
+    }
+
+    public void setEmoji(String emoji) {
+        this.emoji = emoji;
     }
 
     public int getAge() {
@@ -73,64 +92,14 @@ public class Person {
         this.adjetives = adjetives;
     }
 
-    public void move(String movement, Carriage carriage){
-        int[] actualPosition = carriage.findPosition();
-        //System.out.println("START ****" + Arrays.toString(actualPosition));
-        switch (movement.toLowerCase()){
-            case "w":
-                if (actualPosition[0] > 0){
-                    actualPosition[0]-=1;
-                }
-                break;
-            case "s":
-                if (actualPosition[0] < 2){
-                    actualPosition[0]+=1;
-                }
-                break;
-            case "a":
-                if(actualPosition[1] > 0){
-                    actualPosition[1]-=1;
-                }
-                break;
-            case "d":
-                if (actualPosition[1] < 6){
-                    actualPosition[1]+=1;
-                }
-                break;
-        }
 
-        if (carriage.checkObjectCollision(actualPosition)){
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Perro: Hola! Oso glotón!");
-            boolean exists = false;
-            while (!exists){
-                System.out.println("1. Como te ha ido el dia?");
-                System.out.println("2. Que estas haciendo perro?");
-                System.out.println("3. [Accion] Pedirle la patita?");
-                System.out.println("4. [Accion] Dejar conversación");
-                switch (scanner.nextLine()){
-                    case "1":
-                        System.out.println("-> Perro: Guau, mi día fue genial, lleno de juegos y siestas.");
-                        break;
-                    case "2":
-                        System.out.println("-> Perro: Estoy corriendo y explorando, ¡la vida de perro es emocionante!");
-                        break;
-                    case "3":
-                        System.out.println("-> Perro: *Levanto mi patita con alegría*");
-                        break;
-                    case "4":
-                        System.out.println("-> Perro: *Muevo la cola y me despido, hasta luego, Oso!*");
-                        exists = true;
-                        break;
-                }
-            }
-        }else {
-            //System.out.println("FINISH ****" + Arrays.toString(actualPosition));
-            carriage.updatePosition(actualPosition);
-        }
-
+    public void setRow(int i) {
+        this.row = i;
     }
 
+    public void setCol(int i) {
+        this.col = i;
+    }
 }
 
 
