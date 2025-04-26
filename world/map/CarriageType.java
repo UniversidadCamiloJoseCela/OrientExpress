@@ -82,7 +82,7 @@ public enum CarriageType {
         // Baño: lavabo, inodoro y puertas interiores
         return new CellType[][] {
                 {FLOOR, SINK,  FLOOR, TOILET, FLOOR, SINK,  FLOOR},
-                {FLOOR, DOOR,  FLOOR, DOOR,   FLOOR, DOOR,   FLOOR},
+                {FLOOR, FLOOR,  FLOOR, FLOOR,   FLOOR, FLOOR,   FLOOR},
                 {FLOOR, FLOOR, FLOOR, FLOOR,  FLOOR, FLOOR, FLOOR}
         };
     }
@@ -100,7 +100,7 @@ public enum CarriageType {
         // Pasillo interior con puertas
         return new CellType[][] {
                 {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR},
-                {FLOOR, DOOR,  FLOOR, DOOR,  FLOOR, DOOR,  FLOOR},
+                {FLOOR, FLOOR,  FLOOR, FLOOR,  FLOOR, FLOOR,  FLOOR},
                 {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR}
         };
     }
@@ -109,7 +109,7 @@ public enum CarriageType {
         // Locomotora: panel de mandos y puertas
         return new CellType[][] {
                 {FLOOR, FLOOR, FLOOR, PANEL, FLOOR, FLOOR, FLOOR},
-                {FLOOR, DOOR,  FLOOR, FLOOR, FLOOR, DOOR,  FLOOR},
+                {FLOOR, FLOOR,  FLOOR, FLOOR, FLOOR, FLOOR,  FLOOR},
                 {FLOOR, FLOOR, FLOOR, PANEL, FLOOR, FLOOR, FLOOR}
         };
     }
