@@ -6,10 +6,15 @@ import static world.map.CellType.*;
  * Tipos de vagón disponibles y sus layouts por defecto.
  */
 public enum CarriageType {
-    VIEWPOINT(createDiningMatrix()),
-    COAL(createKitchenMatrix()),
+    VIEWPOINT(createBathroomMatrix()),
+    BAGGAGE(createKitchenMatrix()),
+    DINNER(createBathroomMatrix()),
+    LOUNGE(createBathroomMatrix()),
+    BEDROOM(createBathroomMatrix()),
     BATHROOM(createBathroomMatrix()),
-    BEDROOM(createSleeperMatrix());
+    KITCHEN(createKitchenMatrix()),
+    COUL(createKitchenMatrix()),
+    LOCOMOTIVE(createBathroomMatrix());
 
     private final CellType[][] matrix;
 

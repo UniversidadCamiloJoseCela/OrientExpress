@@ -31,6 +31,11 @@ public class Person {
     private int row = 0, col = 0;
 
     public int getCurrentCarriage() { return currentCarriage; }
+
+    public void setCurrentCarriage(int currentCarriage) {
+        this.currentCarriage = currentCarriage;
+    }
+
     public int getRow() { return row; }
     public int getCol() { return col; }
 
