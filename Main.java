@@ -181,24 +181,29 @@ public static void originalMain (String[] argumentos) throws Exception {
     detective.setCurrentCarriage(3);
     printMap(train, detective, 3);
 
-
     interactionMovement(train, narrador ,detective, sc, dm, bundleMsg, bundleDialog,doorMap,
             comander, mayor, detectiveAssistant, criminologist, novelist);
     sc.close();
-    System.out.println("EXIT");
-
+    String art = """
+         FFFFF  IIIII  N   N
+         F        I    NN  N
+         FFF      I    N N N
+         F        I    N  NN
+         F      IIIII  N   N
+        """;
+    System.out.println(art);
 }
 
 private static Carriage printMap(List<Carriage> train, Detective detective, int index) {
     Carriage current = train.get(index);
-    System.out.println(STR."Vagón: \{current.getType()}");
+    System.out.println(STR."YOU: \{current.getType()}");
     current.render(detective);
     return current;
 }
 
-private static void optionMenu(Scanner sc, DialogueManager dm, DialogueScene sceneA, DialogueScene sceneB) throws Exception {
-        System.out.println("\n--- DIALOGOS ---");
-        System.out.print("Elige (a/b)");
+private static String optionMenu(ResourceBundle bundleMsg, Scanner sc, DialogueManager dm, DialogueScene sceneA, DialogueScene sceneB) throws Exception {
+        System.out.println("\n"+ bundleMsg.getString("dialogs.header"));
+        System.out.print(bundleMsg.getString("dialogs.prompt"));
         String op = sc.next().trim().toLowerCase();
         DialogueScene nextScene = switch (op) {
             case "a" -> sceneA;
@@ -207,13 +212,15 @@ private static void optionMenu(Scanner sc, DialogueManager dm, DialogueScene sce
         };
         dm.loadScene(nextScene);
         dm.start();
+        return op;
 }
 
 private static void interactionMovement(List<Carriage> train, Person narrador, Detective detective, Scanner sc, DialogueManager dm, ResourceBundle bundleMsg, ResourceBundle bundleDialog, Map<String, Integer> doorMap,
                                         Comander comander, Mayor mayor, DetectiveAssistant detectiveAssistant,
                                         Criminologist criminologist, Novelist novelist) throws Exception {
-    System.out.println("Usa W/A/S/D para moverte, E para interactuar, Q para salir, H para historial, P para pistas, R para resolver caso.");
-    while (true) {
+    System.out.println(bundleMsg.getString("controls.instructions"));
+    boolean exit = false;
+    while (!exit) {
         Carriage current = printMap(train, detective, detective.getCurrentCarriage()); // !!!!
         System.out.print("> ");
         char cmd = Character.toUpperCase(sc.next().charAt(0));
@@ -230,8 +237,8 @@ private static void interactionMovement(List<Carriage> train, Person narrador, D
 
                 // Crear scenario final
                 if(detective.getClues().size() != 5) {
-                    System.out.println("Faltan pistas investiga mas");
-                    System.out.println(STR."\{detective.getClues().size()}de 5");
+                    System.out.println(bundleMsg.getString("controls.noClues"));
+                    System.out.println(STR."\{detective.getClues().size()} / 5");
                     continue;
                 }
 
@@ -247,12 +254,17 @@ private static void interactionMovement(List<Carriage> train, Person narrador, D
                 dm.loadScene(Scene.scene11(bundleDialog, detective, narrador));
                 dm.start();
 
-                optionMenu(sc, dm,
+                String op = optionMenu(bundleMsg, sc, dm,
                         Scene.scene11a(bundleDialog, detective, criminologist),
                         Scene.scene11b(bundleDialog, detective, novelist));
 
-
-
+                exit = true;
+                if(op.equals("a")) {
+                    dm.loadScene(Scene.sceneFinalA(bundleDialog, narrador));
+                }else {
+                    dm.loadScene(Scene.sceneFinalB(bundleDialog, narrador));
+                }
+                dm.start();
                 continue;
             }
             case 'H': {
@@ -264,7 +276,7 @@ private static void interactionMovement(List<Carriage> train, Person narrador, D
                 continue;
             }
             case 'P': {
-                System.out.println("Pistas encontradas:");
+                System.out.println(bundleMsg.getString("clues.found"));
                 for (Clue c : detective.getClues()) {
                     System.out.println(STR."- \{c.getDescription()}");
                 }
@@ -284,7 +296,7 @@ private static void interactionMovement(List<Carriage> train, Person narrador, D
                         dm.loadScene(Scene.scene5(bundleDialog, narrador));
                         dm.start();
 
-                        optionMenu(sc, dm,
+                        optionMenu(bundleMsg, sc, dm,
                                 Scene.scene5a(bundleDialog, detective, comander),
                                 Scene.scene5b(bundleDialog, detective, comander));
 
@@ -305,7 +317,7 @@ private static void interactionMovement(List<Carriage> train, Person narrador, D
                         dm.loadScene(Scene.scene8(bundleDialog, narrador, detective, mayor));
                         dm.start();
 
-                        optionMenu(sc, dm,
+                        optionMenu(bundleMsg, sc, dm,
                                 Scene.scene8a(bundleDialog, detective, mayor),
                                 Scene.scene8b(bundleDialog, detective, mayor));
 
@@ -324,39 +336,51 @@ private static void interactionMovement(List<Carriage> train, Person narrador, D
                         vw.getLayout().cellAt(2,1).setNpc(criminologist);
                         vw.getLayout().cellAt(2,3).setNpc(novelist);
 
-                        vw.getLayout().cellAt(0,0).setItem(new Clue("Pañuelo de María",
-                                "Pañuelo de seda con iniciales 'F', encontrado cerca del cuerpo de Paco."));
+                        // Pista 1: Pañuelo de María
+                        vw = train.get(0);
+                        vw.getLayout().cellAt(0, 0).setItem(new Clue(
+                                bundleMsg.getString("clue.handkerchief.title"),
+                                bundleMsg.getString("clue.handkerchief.text")
+                        ));
 
-                        vw = train.get(5); // LOUNGUE
-                        vw.getLayout().cellAt(1,2).setItem(new Clue("Huellas femeninas",
-                                "Marcas de zapatos pequeños, posiblemente femeninos, en la alfombra del camarote."));
+                        // Pista 2: Huellas femeninas
+                        vw = train.get(5);
+                        vw.getLayout().cellAt(1, 2).setItem(new Clue(
+                                bundleMsg.getString("clue.feminineFootprints.title"),
+                                bundleMsg.getString("clue.feminineFootprints.text")
+                        ));
 
-                        vw = train.get(3); // LOUNGUE
-                        vw.getLayout().cellAt(0,0).setItem(new Clue("Libro de Anne",
-                                "Libro titulado 'Muerte Silenciosa', firmado por Anne. Detalla técnicas de asesinato sin rastros."));
+                        // Pista 3: Libro de Anne
+                        vw = train.get(3);
+                        vw.getLayout().cellAt(0, 0).setItem(new Clue(
+                                bundleMsg.getString("clue.anneBook.title"),
+                                bundleMsg.getString("clue.anneBook.text")
+                        ));
 
-                        vw = train.get(6); // KITCHEN
-                        vw.getLayout().cellAt(1,0).setItem(new Clue("Té con sedantes",
-                                "Restos de té con aroma peculiar. Contiene sedantes naturales capaces de paralizar temporalmente."));
+                        // Pista 4: Té con sedantes
+                        vw = train.get(6);
+                        vw.getLayout().cellAt(1, 0).setItem(new Clue(
+                                bundleMsg.getString("clue.sedativeTea.title"),
+                                bundleMsg.getString("clue.sedativeTea.text")
+                        ));
 
-                        vw = train.get(8); // LOCOMOTIVE
-                        vw.getLayout().cellAt(1,1).setItem(new Clue("Nota de Paco",
-                                "Nota arrugada escrita por Paco: 'Ya sé quién eres. Tenemos que hablar urgentemente.' Dirigida aparentemente a María."));
+                        // Pista 5: Nota de Paco
+                        vw = train.get(8);
+                        vw.getLayout().cellAt(1, 1).setItem(new Clue(
+                                bundleMsg.getString("clue.pacoNote.title"),
+                                bundleMsg.getString("clue.pacoNote.text")
+                        ));
 
 
                     } else if (cell.getNpc() instanceof DetectiveAssistant) {
                         dm.loadScene(Scene.scene10(bundleDialog, detective, detectiveAssistant));
                         dm.start();
 
-                        optionMenu(sc, dm,
+                        optionMenu(bundleMsg, sc, dm,
                                 Scene.scene10a(bundleDialog, detective, detectiveAssistant),
                                 Scene.scene10b(bundleDialog, detective, detectiveAssistant));
 
-
-
                     } else if (cell.getNpc() instanceof Criminologist) {
-
-
 
                         dm.loadScene(Scene.scene10c(bundleDialog, detective, criminologist));
                         dm.start();
@@ -378,7 +402,7 @@ private static void interactionMovement(List<Carriage> train, Person narrador, D
                         // posiciona al otro lado de la puerta
                         detective.setRow(1);
                         detective.setCol((detective.getCol() == 0) ? 6 : 0);
-                        System.out.println(STR."Te mueves al vagón \{train.get(dest).getType()}");
+                        System.out.println(STR."--- \{train.get(dest).getType()} --- ");
 
                     }
                 }

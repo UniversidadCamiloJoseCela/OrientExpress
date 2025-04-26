@@ -325,6 +325,25 @@ public class Scene {
         return new DialogueScene(lines);
     }
 
+    public static DialogueScene sceneFinalA(ResourceBundle bundleDialog,
+                                            Person narrador) {
+        List<DialogueLine> lines = List.of(
+                new DialogueLine(narrador, bundleDialog.getString("sceneFinalA.line1.text"), 0),
+                new DialogueLine(narrador, bundleDialog.getString("sceneFinalA.line2.text"), 0),
+                new DialogueLine(narrador, bundleDialog.getString("sceneFinalA.line3.text"), 0)
+        );
+        return new DialogueScene(lines);
+    }
+
+    public static DialogueScene sceneFinalB(ResourceBundle bundleDialog,
+                                            Person narrador) {
+        List<DialogueLine> lines = List.of(
+                new DialogueLine(narrador, bundleDialog.getString("sceneFinalB.line1.text"), 0),
+                new DialogueLine(narrador, bundleDialog.getString("sceneFinalB.line2.text"), 0),
+                new DialogueLine(narrador, bundleDialog.getString("sceneFinalB.line3.text"), 0)
+        );
+        return new DialogueScene(lines);
+    }
 
 
 }

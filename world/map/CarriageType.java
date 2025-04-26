@@ -63,7 +63,7 @@ public enum CarriageType {
     private static CellType[][] createLoungeMatrix() {
         // Salón: sillones y mesas bajas
         return new CellType[][] {
-                {FLOOR, ARMCHAIR, FLOOR, TABLE, FLOOR, ARMCHAIR, FLOOR},
+                {FLOOR, ARMCHAIR, FLOOR, TABLE, FLOOR, FLOOR, FLOOR},
                 {FLOOR, FLOOR,     FLOOR, FLOOR, FLOOR, FLOOR,     FLOOR},
                 {FLOOR, ARMCHAIR, FLOOR, TABLE, FLOOR, ARMCHAIR, FLOOR}
         };
@@ -72,9 +72,9 @@ public enum CarriageType {
     private static CellType[][] createSleeperMatrix() {
         // Camarote: literas
         return new CellType[][] {
-                {FLOOR, BED, BED, BED, FLOOR, BED, FLOOR},
+                {FLOOR, BED, BED, FLOOR, FLOOR, FLOOR, FLOOR},
                 {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR},
-                {FLOOR, BED, BED, BED, FLOOR, BED, FLOOR}
+                {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR}
         };
     }
 
