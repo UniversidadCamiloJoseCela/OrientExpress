@@ -92,6 +92,7 @@ public class Carriage {
                             case ARMCHAIR   -> emoji = "🛋️";
                             case SINK       -> emoji = "🚰";
                             case TOILET     -> emoji = "🚽";
+                            case DIE        -> emoji = "☠️";
                             default         -> emoji = "❓";
                         }
                     }

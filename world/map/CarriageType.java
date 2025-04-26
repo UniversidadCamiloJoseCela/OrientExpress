@@ -72,9 +72,9 @@ public enum CarriageType {
     private static CellType[][] createSleeperMatrix() {
         // Camarote: literas
         return new CellType[][] {
-                {FLOOR, BED, BED, FLOOR, FLOOR, FLOOR, FLOOR},
+                {FLOOR, BED, BED, DIE, FLOOR, FLOOR, FLOOR},
                 {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR},
-                {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR}
+                {BED, FLOOR, FLOOR, FLOOR, FLOOR, BED, BED}
         };
     }
 
@@ -83,34 +83,34 @@ public enum CarriageType {
         return new CellType[][] {
                 {FLOOR, SINK,  FLOOR, TOILET, FLOOR, SINK,  FLOOR},
                 {FLOOR, FLOOR,  FLOOR, FLOOR,   FLOOR, FLOOR,   FLOOR},
-                {FLOOR, FLOOR, FLOOR, FLOOR,  FLOOR, FLOOR, FLOOR}
+                {FLOOR, SINK, FLOOR, TOILET,  FLOOR, SINK, FLOOR}
         };
     }
 
     private static CellType[][] createKitchenMatrix() {
         // Cocina: mesa de preparación y panel de control
         return new CellType[][] {
-                {FLOOR, FLOOR, FLOOR, FLOOR,  FLOOR, FLOOR, FLOOR},
+                {FLOOR, PANEL, FLOOR, FLOOR,  FLOOR, PANEL, FLOOR},
                 {FLOOR, FLOOR, FLOOR, PANEL,  FLOOR, FLOOR, FLOOR},
-                {FLOOR, FLOOR, FLOOR, PANEL,  FLOOR, FLOOR, FLOOR}
+                {FLOOR, PANEL, FLOOR, PANEL,  FLOOR, PANEL, FLOOR}
         };
     }
 
     private static CellType[][] createCouloirMatrix() {
         // Pasillo interior con puertas
         return new CellType[][] {
-                {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR},
+                {PANEL, FLOOR, PANEL, FLOOR, PANEL, FLOOR, PANEL},
                 {FLOOR, FLOOR,  FLOOR, FLOOR,  FLOOR, FLOOR,  FLOOR},
-                {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR}
+                {FLOOR, PANEL, FLOOR, PANEL, FLOOR, PANEL, FLOOR}
         };
     }
 
     private static CellType[][] createLocomotiveMatrix() {
         // Locomotora: panel de mandos y puertas
         return new CellType[][] {
-                {FLOOR, FLOOR, FLOOR, PANEL, FLOOR, FLOOR, FLOOR},
-                {FLOOR, FLOOR,  FLOOR, FLOOR, FLOOR, FLOOR,  FLOOR},
-                {FLOOR, FLOOR, FLOOR, PANEL, FLOOR, FLOOR, FLOOR}
+                {FLOOR, FLOOR, FLOOR, PANEL, PANEL, PANEL, PANEL},
+                {FLOOR, FLOOR,  FLOOR, FLOOR, FLOOR, FLOOR,  PANEL},
+                {FLOOR, FLOOR, FLOOR, PANEL, PANEL, PANEL, PANEL}
         };
     }
 }

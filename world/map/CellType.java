@@ -9,5 +9,6 @@ public enum CellType {
     PANEL,
     ARMCHAIR,
     SINK,
-    TOILET
+    TOILET,
+    DIE
 }
