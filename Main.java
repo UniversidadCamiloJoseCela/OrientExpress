@@ -152,7 +152,7 @@ public static void originalMain (String[] argumentos) throws Exception {
     // Lunes
     System.out.println("LUNES: Inicio del trayecto");
 
-    dm.loadScene(Scene.scene3(bundleDialog, narrador, detective, locomotiveDriver));
+
 
     // Menu de opciones
     //optionMenu(sc, bundleDialog, narrador, detective, dm);
