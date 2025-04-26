@@ -191,6 +191,7 @@ public static void originalMain (String[] argumentos) throws Exception {
          F        I    N  NN
          F      IIIII  N   N
         """;
+    System.out.println("");
     System.out.println(art);
 }
 
@@ -202,17 +203,25 @@ private static Carriage printMap(List<Carriage> train, Detective detective, int 
 }
 
 private static String optionMenu(ResourceBundle bundleMsg, Scanner sc, DialogueManager dm, DialogueScene sceneA, DialogueScene sceneB) throws Exception {
-        System.out.println("\n"+ bundleMsg.getString("dialogs.header"));
+    System.out.println("\n" + bundleMsg.getString("dialogs.header"));
+    String op;
+    DialogueScene nextScene;
+    //Repetir hasta que el usuario introduzca "a" o "b"
+    do {
         System.out.print(bundleMsg.getString("dialogs.prompt"));
-        String op = sc.next().trim().toLowerCase();
-        DialogueScene nextScene = switch (op) {
-            case "a" -> sceneA;
-            case "b" -> sceneB;
-            default -> throw new IllegalStateException(STR."ERROR: \{op}");
-        };
-        dm.loadScene(nextScene);
-        dm.start();
-        return op;
+        op = sc.next().trim().toLowerCase();
+        if (!op.equals("a") && !op.equals("b")) {
+            System.out.println("Opción no válida. Por favor, introduce 'a' o 'b'.");
+        }
+    } while (!op.equals("a") && !op.equals("b"));
+
+    //Asignar la siguiente escena según la opción válida
+    nextScene = op.equals("a") ? sceneA : sceneB;
+
+    dm.loadScene(nextScene);
+    dm.start();
+
+    return op;
 }
 
 private static void interactionMovement(List<Carriage> train, Person narrador, Detective detective, Scanner sc, DialogueManager dm, ResourceBundle bundleMsg, ResourceBundle bundleDialog, Map<String, Integer> doorMap,
@@ -253,6 +262,9 @@ private static void interactionMovement(List<Carriage> train, Person narrador, D
 
                 dm.loadScene(Scene.scene11(bundleDialog, detective, narrador));
                 dm.start();
+
+                System.out.println("\na: Maria");
+                System.out.println("b: Anne");
 
                 String op = optionMenu(bundleMsg, sc, dm,
                         Scene.scene11a(bundleDialog, detective, criminologist),

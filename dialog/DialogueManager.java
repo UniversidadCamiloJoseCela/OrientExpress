@@ -52,7 +52,7 @@ public class DialogueManager {
     };
 
     private void waitForUserAction() throws IOException {
-        System.out.print("  [ENTER ...]");
+        System.out.println("  [ENTER ...]");
         reader.readLine();
     }
 

@@ -45,9 +45,9 @@ public enum CarriageType {
     private static CellType[][] createOpenMatrix() {
         // Espacio abierto (bodega o pasillo)
         return new CellType[][] {
+                {SEAT, SEAT, SEAT, SEAT, SEAT, SEAT, FLOOR},
                 {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR},
-                {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR},
-                {FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR}
+                {SEAT, SEAT, SEAT, SEAT, SEAT, SEAT, SEAT}
         };
     }
 
